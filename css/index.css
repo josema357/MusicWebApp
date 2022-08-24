@@ -98,6 +98,7 @@ a{
 .btn1{
     color: white;
     background-color: black;
+    border: none;
     border-radius: 2rem;
     padding: 1rem 1.5rem;
     font-weight: 800;
@@ -147,6 +148,9 @@ h3{
 }
 h4{
     text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 .cont-planes p:nth-child(2){
     color: black;
@@ -154,10 +158,12 @@ h4{
     font-size: 0.9rem;
 }
 .div-planes{
+    padding: 0 70px;
     display: flex;
+    margin-top: 5rem;
 }
 .plan{
-    background-color: lightblue;
+    background-color: white;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -168,7 +174,7 @@ h4{
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
-    height: 180px;
+    height: 170px;
 }
 .par01-plan ul{
     padding: 0;
@@ -188,6 +194,7 @@ h4{
 .li02{
     background-color: white;
     width: max-content;
+    border: 2px solid rgb(13, 114, 234);
 }
 .sp01{
     color: white;
@@ -204,7 +211,45 @@ h5{
     color: black;
     font-size: 0.95rem;
 }
-
+.par02-plan{
+    height: 15rem;
+}
+.par02-plan ul{
+    padding: 0;
+}
+.par02-plan ul li{
+    display: flex;
+    margin: 0.5rem 0;
+}
+.list-beneficios svg{
+    vertical-align: super;
+    margin-right: 0.6rem;
+}
+.list-beneficios{
+    font-size: 0.95rem;
+}
+.text{
+    margin-top: 3px;
+}
+.comenzar{
+    background-color: black;
+    text-align: center;
+    border-radius: 1.5rem;
+    padding: 0.9rem;
+}
+.comenzar a{
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.term-cond p{
+    color: black;
+    text-align: justify;
+    margin-top: 1.5rem;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+footer{
+    background-color: lightblue;
+}
 /*----------------------------------------------------------------------------------------------------------*/
 @media (max-width: 1050px){
     .seccion1{
@@ -222,5 +267,11 @@ h5{
         width: 50%;
         margin: 20px auto;
     }
-
+    .div-planes{
+        flex-direction: column;
+        align-items: center;
+    }  
+    .plan{
+        width: 47%;
+    }
 }
