@@ -52,6 +52,7 @@ li a{
 .seccion1{
     background-color: var(--color-firts-section);
     padding: 50px 70px;
+    padding-bottom: 30px;
     display: flex; 
 }
 .sec01{
@@ -60,7 +61,6 @@ li a{
 }
 .sec02{
     width: 40%;
-    margin: 0 0 0 20px
 }
 h1{
     margin: 0;
@@ -84,6 +84,11 @@ a{
     color: white;
 }
 .img_musica{
+    width: 90%;
+    height: 400px;
+    margin: 0 0 0 40px;
+}
+.img_musica img{
     width: 100%;
     height: 100%;
 }
@@ -104,4 +109,118 @@ a{
     border-radius: 2rem;
     padding: 1rem 1.5rem;
     font-weight: 800;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+.seccion2{
+    padding: 20px;
+}
+h3{
+    text-align: center;
+    font-size: 2.4rem;
+}
+.beneficios{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.beneficios li{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.beneficios li div{
+    padding: 20px;
+}
+.descripcion p{
+    color: black;
+    font-size: 1.1rem;
+    text-align: center;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+.seccion3{
+    padding: 10px;
+    padding-top: 30px;
+    background-color: rgb(239, 239, 239);
+}
+h4{
+    text-align: center;
+}
+.cont-planes p:nth-child(2){
+    color: black;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.div-planes{
+    display: flex;
+}
+.plan{
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 25%;
+    box-shadow: rgba(99, 99, 99, 0.5) 2px 2px 8px 0px;
+}
+.par01-plan{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    height: 180px;
+}
+.par01-plan ul{
+    padding: 0;
+    margin: 0;
+}
+.par01-plan ul li{
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.li01{
+    background-color: rgb(13, 114, 234); 
+    width: max-content;
+}
+.li02{
+    background-color: white;
+    width: max-content;
+}
+.sp01{
+    color: white;
+}
+.sp02{
+    color: rgb(13, 114, 234);
+}
+h5{
+    margin: 0;
+    font-size: 1.4rem;
+}
+.par01-plan p{
+    margin: 0;
+    color: black;
+    font-size: 0.95rem;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1050px){
+    .seccion1{
+        flex-direction: column;
+        padding-top: 0;
+        height: auto;
+    }
+    .sec01{
+        width: 100%;
+    }
+    .sec02{
+        width: 100%;
+    }
+    .img_musica{
+        width: 50%;
+        margin: 20px auto;
+    }
+
 }
