@@ -15,16 +15,16 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 5%;
+    padding: 10px 5% 8px;
 }
 .logo{
     width: 10%;
     height: 100%;
-    margin-top: 0.2rem;
 }
 .logo img{
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 40px;
+    margin-top: 6px;
 }
 .desplegable{
     display: flex;
@@ -84,14 +84,8 @@ p{
 a{
     color: white;
 }
-.img_musica{
-    width: 90%;
-    height: 400px;
-    margin: 0 0 0 40px;
-}
 .img_musica img{
     width: 100%;
-    height: 100%;
 }
 .caja-btns{
     padding: 20px 0 30px 0;
@@ -225,7 +219,7 @@ h5{
     display: flex;
     margin: 0.5rem 0;
 }
-.list-beneficios svg{
+.list-beneficios img{
     vertical-align: super;
     margin-right: 0.6rem;
 }
@@ -253,22 +247,40 @@ h5{
 /*----------------------------------------------------------------------------------------------------------*/
 footer{
     background-color: black;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem 2rem;
 }
 .sec-foot1{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 3rem;
 }
 .links{
     display: flex;
     flex-direction: row;
+
+}
+dl{
+    margin: 40px;
+    margin-top: 12px;
 }
 dt{
-    color: white;
+    color: silver;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
 }
 dd{
     margin: 0;
+    margin-bottom: 20px;
+}
+dd a{
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+dd a:hover{
+    color: #1ed760;
 }
 .redes_sociales{
     margin: 0;
@@ -291,8 +303,41 @@ dd{
     justify-content: center;
     align-items: center;
 }
+.sec-foot2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.info_legal ul{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.info_legal ul a{
+    font-size: 0.7rem;
+    font-weight: 200;
+    margin: 0 2rem 0 0;
+    color: silver;
+}
+.info_legal ul a:hover{
+    color: #1ed760;
+}
+.info_ubi{
+    text-align: right;
+}
 .ubicacion{
-    color: white;
+    color: silver;
+    font-size: 0.7rem;
+}
+.ubicacion:hover{
+    color: #1ed760;
+}
+.info_ubi:nth-child(2) p{
+    color: silver;
+    font-size: 0.7rem;
+}
+svg:hover{
+    fill: #1ed760;
 }
 /*----------------------------------------------------------------------------------------------------------*/
 @media (max-width: 1050px){
@@ -308,8 +353,8 @@ dd{
         width: 100%;
     }
     .img_musica{
-        width: 50%;
-        margin: 20px auto;
+        width: 80%;
+        margin: auto;
     }
     .div-planes{
         flex-direction: column;
@@ -317,5 +362,15 @@ dd{
     }  
     .plan{
         width: 47%;
+    }
+}
+@media (max-width: 630px){
+    .seccion1{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .img_musica{
+        width: 100%;
+        margin: 0;
     }
 }
