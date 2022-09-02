@@ -86,9 +86,11 @@ a{
 }
 .img_musica img{
     width: 100%;
+    max-width: 500px;
 }
 .caja-btns{
     padding: 20px 0 30px 0;
+    width: 100%;
 }
 .btn1{
     color: white;
@@ -97,6 +99,7 @@ a{
     border-radius: 2rem;
     padding: 1rem 1.5rem;
     font-weight: 800;
+    margin-right: 1rem;
 }
 .btn2{
     color: white;
@@ -346,6 +349,12 @@ svg:hover{
         padding-top: 0;
         height: auto;
     }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
     .sec01{
         width: 100%;
     }
@@ -353,8 +362,15 @@ svg:hover{
         width: 100%;
     }
     .img_musica{
-        width: 80%;
-        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .beneficios{
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+    .beneficios li{
+        width: 50%;
     }
     .div-planes{
         flex-direction: column;
@@ -364,13 +380,42 @@ svg:hover{
         width: 47%;
     }
 }
+@media (max-width: 750px){
+    .seccion1{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
 @media (max-width: 630px){
     .seccion1{
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    .btn1,.btn2{
+        width: 100%;
+        margin-bottom: 0.8rem;
+    }
+    .beneficios{
+        flex-direction: column;
+    }
+    .beneficios li{
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .descripcion p{
+        text-align: left;
+    }
+}
+@media (max-width: 200px){
+    .seccion1{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    h1{
+        font-size: 1.4rem;
+    }
     .img_musica{
         width: 100%;
-        margin: 0;
     }
 }
