@@ -12,9 +12,11 @@ body{
 }
 .navbar{
     background-color: black;
+    width: 100%;
     height: 80px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
 }
 .logo{
@@ -27,7 +29,7 @@ body{
 .desplegable{
     display: flex;
     flex-direction: row;
-    text-align: right;
+    justify-content: center;
 }
 .opciones, .registrar{
     padding: 0;
@@ -412,6 +414,11 @@ svg:hover{
     }
     .links dl{
         flex-grow: 1;
+    }
+}
+@media (max-width: 900px){
+    .desplegable{
+        padding: 15px;
     }
 }
 @media (max-width: 750px){
