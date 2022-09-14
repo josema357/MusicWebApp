@@ -20,11 +20,11 @@ body{
     width: 100%;
 }
 .logo{
-
+    padding: 14px 17px;
 }
 .logo img{
-    width: 110px;
-    height: 70px;
+    width: 100px;
+    height: 100%;
 }
 .desplegable{
     display: flex;
@@ -35,6 +35,7 @@ body{
     padding: 0;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 li{
     list-style: none;
@@ -267,13 +268,17 @@ h5{
 /*----------------------------------------------------------------------------------------------------------*/
 footer{
     background-color: black;
-    padding: 5rem 2rem 2rem;
+    padding: 5rem 2rem 2rem ;
 }
 .sec-foot1{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: 3rem;
+}
+.logo2 img{
+    width: 100px;
+    height: 52px;
 }
 .links{
     display: flex;
@@ -412,8 +417,14 @@ svg:hover{
     .sec-foot1 div{
         margin-bottom: 2rem;
     }
+    dl{
+        margin: 12px 0;
+    }
     .links dl{
         flex-grow: 1;
+    }
+    .redes_sociales{
+        padding: 0;
     }
 }
 @media (max-width: 900px){
@@ -459,17 +470,30 @@ svg:hover{
     .descripcion p{
         text-align: left;
     }
+    footer{
+        padding: 5rem 1rem 2rem 1rem;
+    }
     .links{
         flex-direction: column;
     }
 }
 @media (max-width: 250px){
+    .desplegable{
+        padding: 15px 0;
+    }
+    .logo{
+        padding: 14px 0;
+    }
+    .logo img{
+        width: 80px;
+    }
     .seccion2{
         padding: 60px 8px;
     }
     .descripcion p{
         margin: 2px 0;
     }
+/*AQUI FALTA LOS ICONO DE REDES SOCIALES*/
 }
 @media (max-width: 200px){
     .seccion1{
