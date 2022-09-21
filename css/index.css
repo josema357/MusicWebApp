@@ -26,6 +26,8 @@ body{
     width: 100px;
     height: 100%;
     cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
 }
 .desplegable{
     display: flex;
@@ -141,8 +143,8 @@ h3{
 }
 .beneficios li .logo-ben img{
     width: 100%;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 50px;
+    max-height: 50px;
 }
 .descripcion p{
     color: black;
@@ -193,6 +195,7 @@ h4{
 .par01-plan ul{
     padding: 0;
     margin: 0;
+    position: relative;
 }
 .par01-plan ul li{
     padding: 5px;
@@ -204,13 +207,15 @@ h4{
 .li01{
     background-color: rgb(13, 114, 234); 
     width: 100%;
-    max-width: 110px;
+    max-width: 111px;
+    box-sizing: border-box;
 }
 .li02{
     background-color: white;
     width: 100%;
-    max-width: 206px;
+    max-width: 214px;
     border: 2px solid rgb(13, 114, 234);
+    box-sizing: border-box;
 }
 .sp01{
     color: white;
@@ -280,6 +285,9 @@ footer{
 .logo2 img{
     width: 100px;
     height: 52px;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
 }
 .links{
     display: flex;
@@ -428,6 +436,9 @@ svg:hover{
     .redes_sociales{
         padding: 0;
     }
+    footer{
+        padding-top: 3.5rem;
+    }
 }
 @media (max-width: 900px){
     .desplegable{
@@ -439,11 +450,14 @@ svg:hover{
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
+    .info_legal ul{
+        margin-bottom: 0;
+    }
     .info_legal li{
-        margin: 0.5rem 0
+        margin-bottom: 1rem ;
     }
     .info_legal ul a{
-        margin: 1rem;
+        margin: 0 2rem 0 0;
     }
 }
 @media (max-width: 630px){
@@ -457,6 +471,9 @@ svg:hover{
     }
     .seccion2{
         padding: 60px 20px;
+    }
+    h3{
+        font-size: 2rem;
     }
     .beneficios{
         flex-direction: column;
@@ -479,7 +496,7 @@ svg:hover{
         text-align: left;
     }
     footer{
-        padding: 5rem 1rem 2rem 1rem;
+        padding: 2.5rem 1rem 0.5rem 1rem;
     }
     .links{
         flex-direction: column;
@@ -503,10 +520,19 @@ svg:hover{
     .seccion2{
         padding: 60px 8px;
     }
+    h3{
+      font-size: 1.7rem;  
+    }
     .descripcion p{
         margin: 2px 0;
     }
-/*AQUI FALTA LOS ICONO DE REDES SOCIALES*/
+    h4{
+        font-size: 1.7rem;
+    }
+    .redes_sociales li{
+        background-color: black;
+        margin: 0;
+    }
 }
 @media (max-width: 218px){
     .info_legal ul a{
@@ -527,7 +553,14 @@ svg:hover{
     .seccion2{
         padding: 60px 1px;
     }
+    .plan{
+        padding: 10px;
+    }
     .logo-ben{
         display: none;
+    }
+    footer{
+        padding: 2.5rem 0.5rem 0.5rem;
+        
     }
 }

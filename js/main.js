@@ -1,5 +1,10 @@
 window.onresize=tomarMedida;
 let burger=document.querySelector(".desplegable")
+document.querySelector(".logo img").onclick=reproductor;
+
+function reproductor(){
+    window.location.href="./reproductor.html";
+}
 
 function tomarMedida(){
     let ancho=window.innerWidth;
