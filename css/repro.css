@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+#section-1{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+}
+#uno{
+    grid-column: 1;
+    grid-row: 1/3;
+}
+#dos{
+    grid-column: 2;
+    grid-row: 1;
+}
+#tres{
+    grid-column: 2;
+    grid-row: 2;
+}
+#cuatro{
+    grid-column: 1/3;
+    grid-row: 3;
+}
