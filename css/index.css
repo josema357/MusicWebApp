@@ -34,6 +34,17 @@ body{
     flex-direction: row;
     justify-content: center;
 }
+.desplegable img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 48px;
+
+}
+.desplegable img:hover{
+    width: 50px;
+}
 .opciones, .registrar{
     padding: 0;
     display: flex;
@@ -104,6 +115,13 @@ a{
     padding: 1rem 1.5rem;
     font-weight: 800;
     margin-right: 1rem;
+    font-size: 0.85rem;
+    width: 286px;
+}
+.btn1:hover{
+    background-color: black;
+    font-size: 0.87rem;
+    cursor: pointer;
 }
 .btn2{
     color: white;
@@ -112,6 +130,13 @@ a{
     border-radius: 2rem;
     padding: 1rem 1.5rem;
     font-weight: 800;
+    font-size: 0.85rem;
+    width: 151px;
+}
+.btn2:hover{
+    background-color: rgb(128, 51, 128);
+    font-size: 0.87rem;
+    cursor: pointer;
 }
 /*----------------------------------------------------------------------------------------------------------*/
 .seccion2{
