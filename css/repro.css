@@ -23,8 +23,10 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: fixed;
     width: 200px;
+    height: calc(100% - 60px);
 }
 #logo{
     width: 100%;
@@ -51,9 +53,6 @@ body{
 .sub-opciones span{
     padding-left: 0.9rem;
 }
-.crea-like{
-    height: 485px;
-}
 .enlaces{
     bottom: 0;
     padding: 0 1.3rem;
@@ -65,6 +64,9 @@ body{
     color: rgb(177, 177, 177);
     font-size: 0.7rem;
     margin: 0.3rem;
+}
+.caja-enlaces{
+    margin-bottom: 1.5rem;
 }
 /*-----------------------------------------DIV-(DOS)--------------------------------------------------------*/
 #dos{
@@ -114,13 +116,28 @@ a{
 }
 .se_02 img{
     width: 100%;
-    max-width: 175px;
-    height: 200px;
+    max-width: 135px;
+    height: 150px;
+    border-radius: 10px;
 }
 .caja_art{
     width: 100%;
-    max-width: 180px;
-    margin: 0 2rem;
+    max-width: 145px;
+    padding: 1rem;
+    margin: 1px 0.9rem;
+    text-align: center;
+    background-color: rgba(41, 41, 41, 0.8);
+    border-radius: 10px;
+}
+.caj-des{
+    margin-top: 8px;
+}
+.informacion{
+    display: flex;
+    flex-direction: row;
+}
+.informacion li{
+    list-style: none;
 }
 /*----------------------------------------------------------------------------------------------------------*/
 #cuatro{
@@ -131,4 +148,16 @@ a{
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 60px;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1452px){
+    .caj-05{
+        
+    }
+}
+@media (max-width: 1212px){
+    .caj-04{
+       
+    }
 }
