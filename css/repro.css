@@ -53,6 +53,7 @@ body{
 .sub-opciones{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .sub-opciones span{
     padding-left: 0.9rem;
@@ -68,6 +69,8 @@ body{
     color: rgb(177, 177, 177);
     font-size: 0.7rem;
     margin: 0.3rem;
+    cursor: pointer;
+    width: fit-content;
 }
 .caja-enlaces{
     margin-bottom: 1.5rem;
@@ -145,22 +148,24 @@ a{
 .se_02{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 .se_02 img{
     width: 100%;
-    max-width: 135px;
+    max-width: 150px;
     height: 150px;
     border-radius: 10px;
 }
 .caja_art{
     width: 100%;
-    max-width: 145px;
-    padding: 1rem;
+    min-width: 145px;
+    max-width: 190px;
+    height: 212px;
+    padding: 1rem 1.5rem;
     margin: 1px 0.9rem;
     text-align: center;
     background-color: rgba(41, 41, 41, 0.8);
     border-radius: 10px;
+    cursor: pointer;
 }
 .caj-des{
     margin-top: 8px;
@@ -260,13 +265,18 @@ a{
     font-weight: 700;
 }
 /*----------------------------------------------------------------------------------------------------------*/
-@media (max-width: 1452px){
-    .caj-05{
-        
+@media (max-width: 1736px){
+    .caj-06{
+        display: none;
     }
 }
-@media (max-width: 1212px){
+@media (max-width: 1485px){
+    .caj-05{
+       display: none;
+    }
+}
+@media (max-width: 1120px){
     .caj-04{
-       
+       display: none;
     }
 }
