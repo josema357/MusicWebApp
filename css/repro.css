@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+*{
+    user-select: none;
+}
 :root{
     --color-two: #292929;
 }
@@ -7,7 +10,7 @@ body{
     font-family: 'Lato', sans-serif;
     height: 100%;
     position: relative;
-    background-color: black;
+    background-color: #1b1b1b;
     font-size: 0.9rem;
     font-weight: 900;
 }
@@ -54,6 +57,7 @@ body{
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: fit-content;
 }
 .sub-opciones span{
     padding-left: 0.9rem;
@@ -140,6 +144,11 @@ body{
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
+}
+.se_01 span{
+    user-select: none;
+    -moz-user-select: none;
+    cursor: pointer;
 }
 a{
     text-decoration: none;
@@ -279,4 +288,23 @@ a{
     .caj-04{
        display: none;
     }
+}
+/*****************************************************JAVASCRIPT******************************************************************************/
+.buscador{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1rem;
+    width: 280px;
+    height: 40px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+.buscador input{
+    border: 0;
+    font-size: 0.9rem;
+    margin-left: 0.9rem;
+}
+.buscador input:focus{
+    outline: none;
 }
