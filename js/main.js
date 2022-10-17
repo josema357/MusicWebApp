@@ -1,6 +1,7 @@
 window.onresize=tomarMedida;
 let burger=document.querySelector(".desplegable")
 document.querySelector(".logo img").onclick=reproductor;
+document.querySelector(".logo2 img").onclick=reproductor;
 
 function reproductor(){
     window.location.href="./reproductor.html";
