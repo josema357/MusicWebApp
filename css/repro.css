@@ -352,3 +352,34 @@ a{
     padding: 0.4rem;
     margin-left: 1rem;
 }
+.contenedor-mensaje-02{
+    position: absolute;
+    top: 235px;
+    left: 185px;
+    display: none;
+    justify-content: flex-start;
+}
+.contenedor-mensaje-03{
+    position: absolute;
+    top: 287px;
+    left: 217px;
+    display: none;
+    justify-content: flex-start;
+}
+.explora{
+    display: none;
+    margin-top: 20px;
+}
+.contenedor-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    grid-auto-rows: 200px;
+    margin-top: 20px;
+}
+.artis-grid{
+    border-radius: 15px;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}

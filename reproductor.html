@@ -35,7 +35,7 @@
                                 <div class="contenedor-mensaje">
                                     <div class="triangulo"></div>
                                     <div class="mensaje-caja">
-                                        <span class="title">Disfruta de tu biblioteca</span><span class="descrip">Inicia sesion para ver tu canciones, podcasts y playlist en tu biblioteca</span>
+                                        <span class="title">Disfruta de tu biblioteca</span><span class="descrip">Inicia sesion para ver tu canciones, podcasts y playlists en tu biblioteca.</span>
                                         <div class="si-no"><span class="sn-01">No ahora</span><span class="sn-02">Iniciar Sesion</span></div>
                                     </div>
                                 </div>
@@ -46,15 +46,29 @@
                 <div class="opciones">
                     <ul>
                         <li>
-                            <div class="sub-opciones 004">
+                            <div class="sub-opciones" id="subo-04">
                                 <img src="./img/img_rep/crear.svg" alt="">
                                 <span>Crear lista de reproduccion</span>
+                                <div class="contenedor-mensaje-02">
+                                    <div class="triangulo"></div>
+                                    <div class="mensaje-caja">
+                                        <span class="title">Crea tu lista de Reproduccion</span><span class="descrip">Inicia sesion para crear y compartir listas de reproduccion.</span>
+                                        <div class="si-no"><span class="sn-01">No ahora</span><span class="sn-02">Iniciar Sesion</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li>
-                            <div class="sub-opciones 005">
+                            <div class="sub-opciones" id="subo-05">
                                 <img src="./img/img_rep/gusto.svg" alt="">
                                 <span>Canciones que te gustan</span>
+                                <div class="contenedor-mensaje-03">
+                                    <div class="triangulo"></div>
+                                    <div class="mensaje-caja">
+                                        <span class="title">Disfruta de tus canciones favoritas</span><span class="descrip">Inicia sesion para ver todas las canciones que te gustan en una playlist.</span>
+                                        <div class="si-no"><span class="sn-01">No ahora</span><span class="sn-02">Iniciar Sesion</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -94,6 +108,10 @@
             </div>
         </div>
         <div id="tres">
+            <div class="explora">
+                <h1>Explora Todo</h1>
+                <div class="contenedor-grid"></div>
+            </div>
             <div class="tres-part1">
                 <div>
                     <div class="se_01">
@@ -312,5 +330,8 @@
         </footer>
     </section>
     <script src="./js/reproductor.js"></script>
+    <script type="text/javascript">
+        document.oncontextmenu=function(){return false}
+    </script>
 </body>
 </html>
