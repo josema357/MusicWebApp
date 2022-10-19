@@ -59,3 +59,16 @@ function likeado(){
     cuadro()
     document.querySelector(".contenedor-mensaje-03").style.display="flex";
 }
+
+/******************************************************************************************************************************************* */
+const cantCajones=document.querySelectorAll(".caja-lr").length;
+console.log(cantCajones)
+for (let i=0; i<cantCajones;i++){
+    document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
+}
+
+function abrirLista(){
+    console.log("lista abierta");
+    document.querySelector(".tres-part1").style.display="none";
+    cuadro();
+}

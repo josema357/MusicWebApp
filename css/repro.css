@@ -175,6 +175,7 @@ a{
     background-color: rgba(41, 41, 41, 0.8);
     border-radius: 10px;
     cursor: pointer;
+    user-select: all;
 }
 .caj-des{
     margin-top: 8px;
@@ -315,6 +316,7 @@ a{
     left: 177px;
     display: none;
     justify-content: flex-start;
+    cursor: auto;
 }
 .triangulo{
     width: 0; 
@@ -345,6 +347,10 @@ a{
     justify-content: right;
     align-items: center;
 }
+.si-no .sn-01{
+    cursor: pointer;
+    padding: 0;
+}
 .si-no .sn-02{
     background-color: white;
     border-radius: 1rem;
@@ -358,6 +364,7 @@ a{
     left: 185px;
     display: none;
     justify-content: flex-start;
+    cursor: auto;
 }
 .contenedor-mensaje-03{
     position: absolute;
@@ -365,6 +372,7 @@ a{
     left: 217px;
     display: none;
     justify-content: flex-start;
+    cursor: auto;
 }
 .explora{
     display: none;
