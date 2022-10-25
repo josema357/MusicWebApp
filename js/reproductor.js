@@ -64,7 +64,6 @@ function likeado(){
 
 /******************************************************************************************************************************************* */
 const cantCajones=document.querySelectorAll(".caja-lr").length;
-console.log(cantCajones)
 for (let i=0; i<cantCajones;i++){
     document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
 }
@@ -72,11 +71,21 @@ for (let i=0; i<cantCajones;i++){
 function abrirLista(){
     let titulo=this.children[1].children[0].innerHTML;
     let descripcion=this.children[1].children[1].innerHTML;
-    console.log("lista abierta");
     document.querySelector(".tres-part1").style.display="none";
     cuadro();
     document.querySelector(".lista-canciones").style.display="block";
     document.querySelector(".titu").innerHTML=titulo;
     document.querySelector(".des").innerHTML=descripcion;
-    console.log(this.children[1].children[1].innerHTML)
+    fetch(`./canciones/${this.getAttribute("nombre")}.txt`)
+    .then((respuesta)=>respuesta.json())
+    .then((data)=>{
+        let keys=Object.keys(data)
+        console.log(data)
+        for(let i=0;i<keys.length;i++){
+            console.log(data[keys[i]])
+            for(let j=0;j<data[keys[i]].length;j++){
+                console.log(data[keys[i]][j].nombre)
+            }
+        }
+    })
 }

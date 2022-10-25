@@ -1,0 +1,90 @@
+{
+    "eminem":[
+        {
+            "artista": "Eminem",
+            "nombre": "Whithout Me",
+            "album": "The Eminem Show"
+        },
+        {
+            "artista": "Eminem",
+            "nombre": "The Real Slim Shady",
+            "album": "The Marshall Mathers LP"
+        },
+        {
+            "artista": "Eminem",
+            "nombre": "Not Afraid",
+            "album": "Hits June 10"
+        },
+        {
+            "artista": "Eminem",
+            "nombre": "Ass Like That",
+            "album": "Encore"
+        },
+        {
+            "artista": "Eminem",
+            "nombre": "Rap God",
+            "album": "The Marshall Mathers LP2"
+        },
+        {
+            "artista": "Eminem",
+            "nombre": "Mockingbird",
+            "album": "Encore"
+        }
+    ],
+    "50cent":[
+        {
+            "artista": "50 Cent",
+            "nombre": "In Da Club",
+            "album": "Get Rich or Die Tryin"
+        },
+        {
+            "artista": "50 Cent",
+            "nombre": "Candy Shop",
+            "album": "The Massacre"
+        },
+        {
+            "artista": "50 Cent",
+            "nombre": "Just A Lil Bit",
+            "album": "The Massacre"
+        }
+    ],
+    "drDre": [
+        {
+            "artista": "Dr. Dre",
+            "nombre": "Still DRE",
+            "album": "2001"
+        },
+        {
+            "artista": "Dr. Dre",
+            "nombre": "The Next Episode",
+            "album": "2001"
+        },
+        {
+            "artista": "Dr. Dre",
+            "nombre": "The Watcher",
+            "album": "2001"
+        }
+    ],
+    "akon":[
+        {
+            "artista": "Akon",
+            "nombre": "Lonely",
+            "album": "Trouble"
+        },
+        {
+            "artista": "Akon",
+            "nombre": "Smack That",
+            "album": "Konvicted"
+        },
+        {
+            "artista": "Akon",
+            "nombre": "Right Now",
+            "album": "Freedom"
+        },
+        {
+            "artista": "Akon",
+            "nombre": "I Wanna Love You",
+            "album": "Konvicted"
+        }
+    ]
+}
