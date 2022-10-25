@@ -43,7 +43,9 @@ function home(){
     document.querySelector(".tres-part1").style.display="block"
     cuadro()
     document.querySelector(".explora").style.display="none";
+    document.querySelector(".lista-canciones").style.display="none";
 }
+
 function bibliote(){
     cuadro()
     document.querySelector(".contenedor-mensaje").style.display="flex";
@@ -68,7 +70,13 @@ for (let i=0; i<cantCajones;i++){
 }
 
 function abrirLista(){
+    let titulo=this.children[1].children[0].innerHTML;
+    let descripcion=this.children[1].children[1].innerHTML;
     console.log("lista abierta");
     document.querySelector(".tres-part1").style.display="none";
     cuadro();
+    document.querySelector(".lista-canciones").style.display="block";
+    document.querySelector(".titu").innerHTML=titulo;
+    document.querySelector(".des").innerHTML=descripcion;
+    console.log(this.children[1].children[1].innerHTML)
 }
