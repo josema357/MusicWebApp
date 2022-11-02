@@ -70,21 +70,38 @@ for (let i=0; i<cantCajones;i++){
 
 function abrirLista(){
     let titulo=this.children[1].children[0].innerHTML;
+    console.log(this.children[0].children[0].src)
     let descripcion=this.children[1].children[1].innerHTML;
     document.querySelector(".tres-part1").style.display="none";
     cuadro();
     document.querySelector(".lista-canciones").style.display="block";
     document.querySelector(".titu").innerHTML=titulo;
     document.querySelector(".des").innerHTML=descripcion;
+    document.querySelector(".listarep").innerHTML="";
     fetch(`./canciones/${this.getAttribute("nombre")}.txt`)
     .then((respuesta)=>respuesta.json())
     .then((data)=>{
         let keys=Object.keys(data)
         console.log(data)
+        let count=0;
         for(let i=0;i<keys.length;i++){
             console.log(data[keys[i]])
             for(let j=0;j<data[keys[i]].length;j++){
-                console.log(data[keys[i]][j].nombre)
+                document.querySelector(".listarep").insertAdjacentHTML("beforeend",`
+                <div class="cancion">
+                    <div class="count">${count++}</div>
+                    <div class="des-prin">
+                        <img class="miniatura" src="./img/img_rep/artistas/eminem.jpg" alt="img"/>
+                        <div class="descrip">
+                            <span class="nm-song">${data[keys[i]][j].nombre}</span>
+                            <span class="nm-art">${data[keys[i]][j].artista}</span>
+                        </div>
+                    </div>
+                    <div>${data[keys[i]][j].album}</div>
+                    <div class="fecha">4 dias</div>
+                    <div class="tiempo">00:00</div>
+                </div>`)
+                console.log(data[keys[i]][j])
             }
         }
     })
