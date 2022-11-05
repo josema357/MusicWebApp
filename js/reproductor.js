@@ -83,7 +83,7 @@ function abrirLista(){
     .then((data)=>{
         let keys=Object.keys(data)
         console.log(data)
-        let count=0;
+        let count=1;
         for(let i=0;i<keys.length;i++){
             console.log(data[keys[i]])
             for(let j=0;j<data[keys[i]].length;j++){

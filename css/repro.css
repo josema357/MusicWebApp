@@ -127,7 +127,7 @@ body{
     grid-row: 2;
     color: white;
     background-color: #1b1b1b;
-    padding: 40px 0.9rem 20px;
+    padding: 40px 1.5rem 20px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -171,55 +171,41 @@ a{
 }
 .se_02 img{
     width: 100%;
-    max-width: 170px;
-    height: 180px;
+    height: 160px;
     border-radius: 10px;
 }
 .se_02{
-    width: 100%;
+    width: fit-content;
     display: grid;
     grid-template-columns: repeat(6,1fr);
-    grid-gap: 15px
-}
-/* .se_02{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    grid-gap: 20px
 }
 .caja_art{
     width: 100%;
-    height: auto;
-    max-width: 240px;
-    box-sizing: border-box;
-    text-align: center;
+    max-width: 200px;
     background-color: rgba(41, 41, 41, 0.8);
-    padding: 1rem 1rem;
+    padding: 1rem;
     border-radius: 10px;
-    margin: 1px 0.5rem;
     cursor: pointer;
-}
-.se_02 img{
-    width: 100%;
-    max-width: 170px;
-    height: 180px;
-    border-radius: 10px;
+    box-sizing: border-box;
 }
 .caj-des{
     margin-top: 8px;
-
-} */
+}
 .flex-info{
     display: flex;
     justify-content: space-between;
     margin: 0 0 2rem;
 }
 .informacion{
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .informacion ul{
     padding: 0;
-    margin-right: 6rem;
 }
 .li-ti p{
     font-size: 1rem;
@@ -254,6 +240,10 @@ a{
     justify-content: space-between;
     border-top: 1px solid rgb(87, 87, 87);
     padding: 2rem 0 1rem;
+}
+.info2-01{
+    display: flex;
+    flex-wrap: wrap;
 }
 .info2-01 span{
     margin-right: 1rem;
@@ -303,22 +293,6 @@ a{
     font-size: 1rem;
     font-weight: 700;
 }
-/*----------------------------------------------------------------------------------------------------------*/
-/* @media (max-width: 1500px){
-    .caj-06{
-        display: none;
-    }
-}
-@media (max-width: 1340px){
-    .caj-05{
-       display: none;
-    }
-}
-@media (max-width: 1048px){
-    .caj-04{
-       display: none;
-    }
-} */
 /*****************************************************JAVASCRIPT******************************************************************************/
 .buscador{
     display: none;
@@ -439,14 +413,13 @@ a{
     display: flex;
     align-items: center;
     margin: 0.7rem;
-
 }
 .iconos span{
     margin: 1rem;
 }
 .canciones{
-    width: 95%;
-    margin: auto;
+    width: 100%;
+    max-width: 1600px;
 }
 .encabeza{
     display: grid;
@@ -489,4 +462,73 @@ a{
     text-align: right;
     padding-right: 1rem;
 }
+/*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
+@media (max-width: 1360px){
+    .caj-06{
+        display: none;
+    }
+    .se_02{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+@media (max-width: 1180px){
+    .caj-05{
+       display: none;
+    }
+    .se_02{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .flex-info{
+        flex-direction: column;
+    }
+    .redes-sociales{
+        margin-top: 1rem;
+    }
+}
+@media (max-width: 995px){
+    .caj-04{
+       display: none;
+    }
+    .se_02{
+        width: 100%;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .se_02 img{
+        height: 170px;
+    }
+}
+@media (max-width: 890px){
+    .informacion{
+        flex-direction: column;
+    }
+    .se_02 img{
+        height: 140px;
+    }
+}
 
+@media (max-width: 800px){
+    .informacion{
+        flex-direction: column;
+    }
+    .se_02 img{
+        height: 120px;
+    }
+}
+@media (max-width: 760px){
+    .peque-des{
+        display: none;
+    }
+    .se_02 img{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-width: 670px){
+    .se_02 img{
+        width: 75px;
+        height: auto;
+    }
+    body{
+        overflow-x: hidden;
+    }
+}
