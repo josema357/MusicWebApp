@@ -97,7 +97,7 @@ function abrirLista(){
                             <span class="nm-art">${data[keys[i]][j].artista}</span>
                         </div>
                     </div>
-                    <div>${data[keys[i]][j].album}</div>
+                    <div class="albu">${data[keys[i]][j].album}</div>
                     <div class="fecha">4 dias</div>
                     <div class="tiempo">00:00</div>
                 </div>`)
