@@ -61,6 +61,51 @@ function likeado(){
     cuadro()
     document.querySelector(".contenedor-mensaje-03").style.display="flex";
 }
+/******************************************************************************************************************************* */
+const resize=document.querySelector(".resize");
+const uno=document.getElementById("uno");
+const dos=document.getElementById("dos");
+const sec1=document.getElementById("section-1");
+ const body=document.querySelector("body");
+resize.addEventListener("mousedown",mousedown);
+function mousedown(e){
+    addEventListener("mousemove",mousemove);
+    addEventListener("mouseup",mouseup);
+    body.style.userSelect="none";
+    function mousemove(e){
+        if(e.clientX>400){
+            uno.style.width="400px";
+            sec1.style.gridTemplateColumns="400px 1fr";
+            dos.style.width=`calc(100% - 400px)`
+        }else if(e.clientX<160){
+            uno.style.width="160px";
+            sec1.style.gridTemplateColumns="160px 1fr";
+            dos.style.width=`calc(100% - 160px)`
+        }else{
+            console.log(e.clientX)
+            uno.style.width=e.clientX + "px";
+            sec1.style.gridTemplateColumns=e.clientX + "px 1fr";
+            dos.style.width=`calc(100% - ${e.clientX}px)`;
+            let cantidad=document.querySelectorAll(".sub-opciones");
+            if(e.clientX>250){
+                for(let i=0;i<cantidad.length;i++){
+                    cantidad[i].style.width="fit-content";
+                }
+            }else{
+                for(let i=0;i<cantidad.length;i++){
+                    cantidad[i].style.width=null;
+                }
+            }
+        }
+    }
+    function mouseup(){
+        removeEventListener("mousemove",mousemove);
+        removeEventListener("mouseup",mouseup);
+        body.style.userSelect=null;
+    }
+}
+
+
 
 /******************************************************************************************************************************************* */
 const cantCajones=document.querySelectorAll(".caja-lr").length;

@@ -285,6 +285,7 @@ h5{
     padding: 0.9rem;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .comenzar span{
     font-size: 0.95rem;

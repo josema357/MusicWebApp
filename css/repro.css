@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 *{
-    user-select: none;
+    /*user-select: none;*/
 }
 :root{
     --color-two: #292929;
@@ -16,24 +16,38 @@ body{
 }
 #section-1{
     display: grid;
+    grid-template-areas: 
+        "top-bar top-bar"
+        "nav-bar main-view"
+        "bar bar";
     grid-template-columns: 260px 1fr;
-    grid-auto-rows: auto;
-    height: 100vh;
-    position: relative;
-    width: 100%;
+    grid-auto-rows: auto 1fr auto;
+
 }
 /*-------------------------------------------NAV-(UNO)----------------------------------------------------*/
 #uno{
-    grid-column: 1;
-    grid-row: 1/3;
+    grid-area: nav-bar;
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     position: fixed;
     width: 260px;
     height: 100%;
+}
+.menu{
+    width: calc(100% - 5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.resize{
+    width: 5px;
+    background-color: black;
+}
+.resize:hover{
+    cursor: col-resize;
+    border-right: 1px dotted white;
 }
 #logo{
     width: 100%;
@@ -45,23 +59,33 @@ body{
     height: 40px;
 }
 #uno ul{
+    width: 100%;
     list-style: none;
-    padding: 0 1.3rem;
+    padding: 0 1rem 0 1rem;
     margin: 0;
     margin-bottom: 2.5rem;
+    box-sizing: border-box;
 }
 .opciones li{
+    width: 100%;
     margin-bottom: 0.9rem;
+}
+#subo-01, #subo-02, #subo-03{
+    width: fit-content;
 }
 .sub-opciones{
     display: flex;
     align-items: center;
     cursor: pointer;
-    width: fit-content;
+    box-sizing: border-box;
 }
 .sub-opciones span{
-    padding-left: 0.9rem;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
 }
+
 .enlaces{
     bottom: 0;
     padding: 0 1.3rem;
@@ -81,19 +105,20 @@ body{
 }
 /*-----------------------------------------DIV-(DOS)--------------------------------------------------------*/
 #dos{
-    grid-column: 2/3;
-    grid-row: 1/2;
+    z-index: 2;
+    grid-area: top-bar;
     background-color: black;
     color: white;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
     padding: 0 1rem;
     position: fixed;
     width: calc(100% - 260px);
     right: 0;
     box-sizing: border-box;
+
 }
 .opciones-dos{
     display: flex;
@@ -123,18 +148,14 @@ body{
 }
 /*----------------------------------------------------------------------------------------------------------*/
 #tres{
-    grid-column: 2/3;
-    grid-row: 2;
-    color: white;
+    grid-area: main-view;
     background-color: #1b1b1b;
+    color: white;
     padding: 40px 1.5rem 20px;
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 .tres-part1{
     width: 100%;
@@ -169,16 +190,14 @@ a{
     text-decoration: none;
     color: white;
 }
+.se_02{
+    width: 100%;
+    display: flex;
+}
 .se_02 img{
     width: 100%;
-    height: 160px;
+    height: 145px;
     border-radius: 10px;
-}
-.se_02{
-    width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-gap: 20px
 }
 .caja_art{
     width: 100%;
@@ -188,9 +207,19 @@ a{
     border-radius: 10px;
     cursor: pointer;
     box-sizing: border-box;
+    margin: 0 10px;
 }
 .caj-des{
+    margin: 0;
     margin-top: 8px;
+}
+.peque-des{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .flex-info{
     display: flex;
@@ -258,15 +287,15 @@ a{
 }
 /*----------------------------------------------------------------------------------------------------------*/
 #cuatro{
-    grid-column: 1/3;
-    grid-row: 3;
+    grid-area: bar;
+    background-color: yellow;
+    display: none;
     background-color: #FC00FF;
     background-image: linear-gradient(90deg, #c61ac9 0%, #3e87ab 90%);
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 60px;
-    display: none;
 }
 .registro{
     display: flex;
@@ -293,6 +322,7 @@ a{
     font-size: 1rem;
     font-weight: 700;
 }
+
 /*****************************************************JAVASCRIPT******************************************************************************/
 .buscador{
     display: none;
@@ -314,7 +344,7 @@ a{
 }
 .contenedor-mensaje{
     position: absolute;
-    top: 169px;
+    top: 160px;
     left: 177px;
     display: none;
     justify-content: flex-start;
@@ -362,7 +392,7 @@ a{
 }
 .contenedor-mensaje-02{
     position: absolute;
-    top: 235px;
+    top: 225px;
     left: 246px;
     display: none;
     justify-content: flex-start;
@@ -370,7 +400,7 @@ a{
 }
 .contenedor-mensaje-03{
     position: absolute;
-    top: 274px;
+    top: 265px;
     left: 233px;
     display: none;
     justify-content: flex-start;
@@ -382,7 +412,7 @@ a{
 }
 .contenedor-grid{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
     grid-gap: 30px;
     grid-auto-rows: 200px;
     margin-top: 20px;
@@ -485,20 +515,14 @@ a{
     padding-right: 1rem;
 }
 /*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
-@media (max-width: 1360px){
+@media (max-width: 1367px){
     .caj-06{
         display: none;
     }
-    .se_02{
-        grid-template-columns: repeat(5,1fr);
-    }
 }
-@media (max-width: 1180px){
+@media (max-width: 1187px){
     .caj-05{
        display: none;
-    }
-    .se_02{
-        grid-template-columns: repeat(4,1fr);
     }
     .flex-info{
         flex-direction: column;
@@ -518,24 +542,14 @@ a{
         grid-template-columns: 50px 3fr 2fr 1fr;
     }
 }
-@media (max-width: 995px){
+@media (max-width: 975px){
     .caj-04{
        display: none;
-    }
-    .se_02{
-        width: 100%;
-        grid-template-columns: repeat(3,1fr);
-    }
-    .se_02 img{
-        height: 170px;
     }
 }
 @media (max-width: 890px){
     .informacion{
         flex-direction: column;
-    }
-    .se_02 img{
-        height: 140px;
     }
     .en-02, .albu{
         display: none;
@@ -547,41 +561,23 @@ a{
         grid-template-columns: 50px 6fr 1fr;
     }
 }
-
+@media (max-width: 827px){
+    .informacion{
+        flex-direction: column;
+    }
+    .caja_art{
+        min-width: 180px;
+    }
+    body{
+        overflow-x: hidden;
+    }
+}
 @media (max-width: 800px){
     .informacion{
         flex-direction: column;
     }
-    .se_02 img{
-        height: 120px;
-    }
-}
-@media (max-width: 760px){
-    .peque-des{
-        display: none;
-    }
-    .se_02 img{
-        width: 100%;
-        height: auto;
-    }
 }
 @media (max-width: 670px){
-    .se_02 img{
-        width: 75px;
-        height: auto;
-    }
-    body{
-        overflow-x: hidden;
-    }
-}
-@media (max-width: 670px){
-    .se_02 img{
-        width: 75px;
-        height: auto;
-    }
-    body{
-        overflow-x: hidden;
-    }
     .tiempo{
         display: none;
     }
@@ -591,4 +587,4 @@ a{
     .cancion{
         grid-template-columns: 50px 1fr;
     }
-}
+} 
