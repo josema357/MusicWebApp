@@ -5,8 +5,6 @@ let listaRep=document.querySelector("#subo-04");
 let gustos=document.querySelector("#subo-05");
 let noNow=document.querySelectorAll(".sn-01");
 
-const artis=["Eminem","50Cent","Bad Bunny","Canserbero","Porta","Coldplay","Linkin Park","Avicii","Daddy Yanquee","Ozuna","Karol G","Don Omar"];
-const colors=["#b90b0b","#6284FF","#1cb7b9","#832185","#0a582e","#a77908","#0093E9","#C850C0","#44c2d1","#5f0f95","#15a324","#af0c0c"];
 
 buscar.addEventListener("click", buscador);
 inicio.addEventListener("click", home);
@@ -36,6 +34,8 @@ function buscador(){
     document.querySelector(".tres-part1").style.display="none"
     cuadro();
     artistas();
+    cambiarColor("linear-gradient(180deg, #1b1b1b 33%, #121212 58%)")
+    document.querySelector(".lista-canciones").style.display="none";
 }
 function home(){
     document.querySelector(".flechas").style.display="block"
@@ -44,6 +44,7 @@ function home(){
     cuadro()
     document.querySelector(".explora").style.display="none";
     document.querySelector(".lista-canciones").style.display="none";
+    cambiarColor("linear-gradient(180deg, #1b1b1b 33%, #121212 58%)")
 }
 
 function bibliote(){
@@ -73,10 +74,10 @@ function mousedown(e){
     addEventListener("mouseup",mouseup);
     body.style.userSelect="none";
     function mousemove(e){
-        if(e.clientX>400){
-            uno.style.width="400px";
-            sec1.style.gridTemplateColumns="400px 1fr";
-            dos.style.width=`calc(100% - 400px)`
+        if(e.clientX>300){
+            uno.style.width="300px";
+            sec1.style.gridTemplateColumns="300px 1fr";
+            dos.style.width=`calc(100% - 300px)`
         }else if(e.clientX<160){
             uno.style.width="160px";
             sec1.style.gridTemplateColumns="160px 1fr";
@@ -108,18 +109,27 @@ function mousedown(e){
 
 
 /******************************************************************************************************************************************* */
+const artis=["Hip-Hop","Mejores Exitos","Todo 2022","Rocks Clasicos","Exitos Relajantes","Exitos de Hoy"];
+const colors=["#a63c3c","#5e5c5d","#e4546b","#9e492c","#bcd2d0","#70bbd7"];
+
+function cambiarColor(color){
+    document.querySelector("#tres").style.background=color;;
+}
+
 const cantCajones=document.querySelectorAll(".caja-lr").length;
 for (let i=0; i<cantCajones;i++){
     document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
 }
 
+
 function abrirLista(){
     let titulo=this.children[1].children[0].innerHTML;
-    console.log(this.children[0].children[0].src)
     let descripcion=this.children[1].children[1].innerHTML;
     document.querySelector(".tres-part1").style.display="none";
     cuadro();
     document.querySelector(".lista-canciones").style.display="block";
+    cambiarColor(`linear-gradient(180deg, ${colors[artis.indexOf(titulo)]} 0%, #121212 480px)`);
+    document.querySelector(".img-port").src=`./img/img_rep/artistas/${titulo.toLowerCase()}.jpg`;
     document.querySelector(".titu").innerHTML=titulo;
     document.querySelector(".des").innerHTML=descripcion;
     document.querySelector(".listarep").innerHTML="";
@@ -127,10 +137,8 @@ function abrirLista(){
     .then((respuesta)=>respuesta.json())
     .then((data)=>{
         let keys=Object.keys(data)
-        console.log(data)
         let count=1;
         for(let i=0;i<keys.length;i++){
-            console.log(data[keys[i]])
             for(let j=0;j<data[keys[i]].length;j++){
                 document.querySelector(".listarep").insertAdjacentHTML("beforeend",`
                 <div class="cancion">
@@ -146,7 +154,6 @@ function abrirLista(){
                     <div class="fecha">4 dias</div>
                     <div class="tiempo">00:00</div>
                 </div>`)
-                console.log(data[keys[i]][j])
             }
         }
     })
