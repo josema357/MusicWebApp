@@ -1,0 +1,76 @@
+{
+    "lista":[
+        {
+            "artis": "Hip-Hop",
+            "colors": "#a63c3c"
+        },
+        {
+            "artis": "Mejores Exitos",
+            "colors": "#5e5c5d"
+        },
+        {
+            "artis": "Todo 2022",
+            "colors": "#e4546b"
+        },
+        {
+            "artis": "Rocks Clasicos",
+            "colors": "#9e492c"
+        },
+        {
+            "artis": "Exitos Relajantes",
+            "colors": "#bcd2d0"
+        },
+        {
+            "artis": "Exitos de Hoy",
+            "colors": "#70bbd7"
+        },
+        {
+            "artis": "Canserbero",
+            "colors": "#363636"
+        },
+        {
+            "artis": "Porta",
+            "colors": "#858c7c"
+        },
+        {
+            "artis": "Coldplay",
+            "colors": "#772d6d"
+        },
+        {
+            "artis": "Linkin Park",
+            "colors": "#faf9f5"
+        },
+        {
+            "artis": "Avicii",
+            "colors": "#3e0f1c"
+        },
+        {
+            "artis": "Ed Sheeran",
+            "colors": "#15b946"
+        },
+        {
+            "artis": "Daddy Yankee",
+            "colors": "#272b2c"
+        },
+        {
+            "artis": "Bad Bunny",
+            "colors": "#71cce7"
+        },
+        {
+            "artis": "Ozuna",
+            "colors": "#999999"
+        },
+        {
+            "artis": "Karol G",
+            "colors": "#37007b"
+        },
+        {
+            "artis": "Don Omar",
+            "colors": "#60574e"
+        },
+        {
+            "artis": "Maluma",
+            "colors": "#10292c"
+        }
+    ]
+}

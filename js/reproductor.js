@@ -1,10 +1,14 @@
+window.onload=medir;
+
 let inicio=document.querySelector("#subo-01");
 let buscar=document.querySelector("#subo-02");
 let biblioteca=document.querySelector("#subo-03");
 let listaRep=document.querySelector("#subo-04");
 let gustos=document.querySelector("#subo-05");
 let noNow=document.querySelectorAll(".sn-01");
+let flecha=document.querySelector(".flechas");
 
+let listasPlay=fetch(`./canciones/listas.txt`).then((respuesta)=>respuesta.json())
 
 buscar.addEventListener("click", buscador);
 inicio.addEventListener("click", home);
@@ -14,6 +18,7 @@ gustos.addEventListener("click",likeado);
 for(let i=0;i<noNow.length;i++){
     noNow[i].addEventListener("click",ocultarMsg);
 }
+flecha.addEventListener("click",atras);
 
 const cuadro=()=>{
     document.querySelector(".contenedor-mensaje").style.display="none";
@@ -23,13 +28,20 @@ const cuadro=()=>{
 const artistas=()=>{
     document.querySelector(".contenedor-grid").innerHTML="";
     document.querySelector(".explora").style.display="block";
-    for(let i=0;i<artis.length;i++){
-        document.querySelector(".contenedor-grid").insertAdjacentHTML("beforeend",`<div class="artis-grid" style="background-color: ${colors[i]};">${artis[i]}</div>`);
-    }
+    listasPlay.then((data)=>{
+        console.log(data.lista)
+        for(let i=0;i<data.lista.length;i++){
+            document.querySelector(".contenedor-grid").insertAdjacentHTML("beforeend",`<div class="artis-grid" style="background-color: ${data.lista[i].colors};">${data.lista[i].artis}</div>`);
+        }
+    })
+}
+
+function atras(){
+    home()
 }
 
 function buscador(){
-    document.querySelector(".flechas").style.display="none";
+    document.querySelector(".flechas").style.display="block";
     document.querySelector(".buscador").style.display="flex"
     document.querySelector(".tres-part1").style.display="none"
     cuadro();
@@ -38,7 +50,7 @@ function buscador(){
     document.querySelector(".lista-canciones").style.display="none";
 }
 function home(){
-    document.querySelector(".flechas").style.display="block"
+    document.querySelector(".flechas").style.display="none"
     document.querySelector(".buscador").style.display="none"
     document.querySelector(".tres-part1").style.display="block"
     cuadro()
@@ -83,7 +95,6 @@ function mousedown(e){
             sec1.style.gridTemplateColumns="160px 1fr";
             dos.style.width=`calc(100% - 160px)`
         }else{
-            console.log(e.clientX)
             uno.style.width=e.clientX + "px";
             sec1.style.gridTemplateColumns=e.clientX + "px 1fr";
             dos.style.width=`calc(100% - ${e.clientX}px)`;
@@ -109,8 +120,6 @@ function mousedown(e){
 
 
 /******************************************************************************************************************************************* */
-const artis=["Hip-Hop","Mejores Exitos","Todo 2022","Rocks Clasicos","Exitos Relajantes","Exitos de Hoy"];
-const colors=["#a63c3c","#5e5c5d","#e4546b","#9e492c","#bcd2d0","#70bbd7"];
 
 function cambiarColor(color){
     document.querySelector("#tres").style.background=color;;
@@ -128,12 +137,20 @@ function abrirLista(){
     document.querySelector(".tres-part1").style.display="none";
     cuadro();
     document.querySelector(".lista-canciones").style.display="block";
-    cambiarColor(`linear-gradient(180deg, ${colors[artis.indexOf(titulo)]} 0%, #121212 480px)`);
+    document.querySelector(".flechas").style.display="block";
+    listasPlay.then((data)=>{
+        for (let artista of data.lista){
+            console.log(artista)
+            if(artista.artis===titulo){
+                cambiarColor(`linear-gradient(180deg, ${artista.colors} 0%, #121212 480px)`);
+            }
+        }
+    })
     document.querySelector(".img-port").src=`./img/img_rep/artistas/${titulo.toLowerCase()}.jpg`;
     document.querySelector(".titu").innerHTML=titulo;
     document.querySelector(".des").innerHTML=descripcion;
     document.querySelector(".listarep").innerHTML="";
-    fetch(`./canciones/${this.getAttribute("nombre")}.txt`)
+    fetch(`./canciones/${titulo.toLowerCase()}.txt`)
     .then((respuesta)=>respuesta.json())
     .then((data)=>{
         let keys=Object.keys(data)
@@ -156,5 +173,22 @@ function abrirLista(){
                 </div>`)
             }
         }
+    }).catch(()=>{
+        document.querySelector(".listarep").insertAdjacentHTML("beforeend",`<div class="error-lista">Lista no encontrada</div>`)
     })
+}
+
+/************************************************************************************************************************ */
+window.onresize=medir;
+function medir(){
+    let ancho=window.innerWidth
+    if(ancho<1000){
+        document.querySelector(".desplegable").style.display="flex";
+        document.querySelector(".opciones-nav").style.display="none";
+        document.querySelector(".barra").style.display="none";
+    }else{
+        document.querySelector(".desplegable").style.display="none";
+        document.querySelector(".opciones-nav").style.display="block";
+        document.querySelector(".barra").style.display="block";
+    }
 }

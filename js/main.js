@@ -5,6 +5,7 @@ document.querySelector(".logo2 img").onclick=reproductor;
 
 function reproductor(){
     window.location.href="./reproductor.html";
+    window.location.replace("./reproductor.html")
 }
 
 function tomarMedida(){
