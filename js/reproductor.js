@@ -130,8 +130,7 @@ for (let i=0; i<cantCajones;i++){
     document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
 }
 
-
-function abrirLista(){
+async function abrirLista(){
     let titulo=this.children[1].children[0].innerHTML;
     let descripcion=this.children[1].children[1].innerHTML;
     document.querySelector(".tres-part1").style.display="none";
@@ -140,7 +139,6 @@ function abrirLista(){
     document.querySelector(".flechas").style.display="block";
     listasPlay.then((data)=>{
         for (let artista of data.lista){
-            console.log(artista)
             if(artista.artis===titulo){
                 cambiarColor(`linear-gradient(180deg, ${artista.colors} 0%, #121212 480px)`);
             }
@@ -150,7 +148,7 @@ function abrirLista(){
     document.querySelector(".titu").innerHTML=titulo;
     document.querySelector(".des").innerHTML=descripcion;
     document.querySelector(".listarep").innerHTML="";
-    fetch(`./canciones/${titulo.toLowerCase()}.txt`)
+    await fetch(`./canciones/${titulo.toLowerCase()}.txt`)
     .then((respuesta)=>respuesta.json())
     .then((data)=>{
         let keys=Object.keys(data)
@@ -170,12 +168,78 @@ function abrirLista(){
                     <div class="albu">${data[keys[i]][j].album}</div>
                     <div class="fecha">4 dias</div>
                     <div class="tiempo">00:00</div>
+                    <audio id="${data[keys[i]][j].nombre.toLowerCase()}" src="../canciones/${data[keys[i]][j].artista.toLowerCase()}/${data[keys[i]][j].nombre.toLowerCase()}.mp3"></audio>
                 </div>`)
             }
         }
     }).catch(()=>{
         document.querySelector(".listarep").insertAdjacentHTML("beforeend",`<div class="error-lista">Lista no encontrada</div>`)
     })
+    let botonesMusica=document.getElementById("barra-reproduccion")
+    if(botonesMusica.children.length===0){
+        botonesMusica.innerHTML="";
+    botonesMusica.insertAdjacentHTML("beforeend",`
+        <div id="part-izq">
+            <img id="imagen" src="" alt="">
+            <div id="cancion">
+                <span id="titulo"></span>
+                <span id="artista"></span>
+            </div>
+        </div>
+        <div id="part-der">
+            <span id="play"><img src="./img/pause-fill.svg" alt=""></span>
+            <span id="next"><img src="./img/play-next-fill.svg" alt=""></span>
+        </div>
+    `)
+    }
+
+
+    /***************************************************************************************************************/
+    const listacanciones=document.querySelectorAll(".cancion");
+    for(let i=0;i<listacanciones.length;i++){
+        listacanciones[i].addEventListener("click",playMusic);
+    }
+    let tituloCan;
+    const audios=document.querySelectorAll('audio');
+    function playMusic(){
+        document.getElementById('barra-reproduccion').style.display='flex'
+        let url=this.children[1].children[0].getAttribute('src');
+        tituloCan=this.children[1].children[1].children[0].innerHTML;
+        let artista=this.children[1].children[1].children[1].innerHTML;
+        document.getElementById('imagen').setAttribute('src',`${url}`)
+        document.getElementById('titulo').innerHTML=tituloCan
+        document.getElementById('artista').innerHTML=artista;
+        for(let i=0;i<listacanciones.length;i++){
+            listacanciones[i].style.backgroundColor='transparent'
+        }
+        for (let i = 0; i< audios.length; i++) {
+            if(audios[i]!==this.children[5]){
+                audios[i].pause();
+                audios[i].currentTime=0;
+            }else{
+                this.children[5].currentTime=0;
+                this.children[5].play();
+                this.style.backgroundColor='rgba(80, 78, 78, 0.7)'
+                document.querySelector("#play img").src="./img/pause-fill.svg"
+            }
+        }
+    }
+    document.querySelector("#play").addEventListener("click",()=>{
+        let tituLower=tituloCan.toLowerCase();
+        for (let i = 0; i< audios.length; i++) {
+            if(audios[i].getAttribute('id')===tituLower){
+                if(audios[i].paused===false){
+                    audios[i].pause()
+                    document.querySelector("#play img").src="./img/play-fill.svg"
+                }else{
+                    audios[i].play()
+                    document.querySelector("#play img").src="./img/pause-fill.svg"
+                }
+                
+            }
+        }
+    })
+
 }
 
 /************************************************************************************************************************ */
@@ -192,3 +256,5 @@ function medir(){
         document.querySelector(".barra").style.display="block";
     }
 }
+
+/**************************************************************************************************************************************** */

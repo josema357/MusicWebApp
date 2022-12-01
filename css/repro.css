@@ -7,7 +7,7 @@ body{
     font-family: 'Lato', sans-serif;
     height: 100%;
     position: relative;
-    background-color: #1b1b1b;
+    background-color: black;
     font-size: 0.9rem;
     font-weight: 900;
 }
@@ -30,7 +30,7 @@ body{
     justify-content: space-between;
     position: fixed;
     width: 240px;
-    height: 100%;
+    height: calc(100% - 60px);
 }
 .menu{
     width: calc(100% - 5px);
@@ -85,7 +85,7 @@ body{
 
 .enlaces{
     bottom: 0;
-    padding: 0 1.3rem;
+    padding: 0.5rem 1.3rem;
     display: flex;
     flex-direction: column;
 }
@@ -98,7 +98,7 @@ body{
     width: fit-content;
 }
 .caja-enlaces{
-    margin-bottom: 1.5rem;
+    text-align: center;
 }
 /*-----------------------------------------DIV-(DOS)--------------------------------------------------------*/
 #dos{
@@ -570,6 +570,37 @@ a{
     color: gray;
     letter-spacing: 0.8rem;
 }
+/*************************************************REPRODUCTOR************************************************************/
+#barra-reproduccion{
+    position: fixed;
+    bottom: 0;
+    color: white;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+#part-izq{
+    display: flex;
+}
+#part-izq img{
+    width: 100%;
+    max-width: 40px;
+}
+#cancion{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+#artista{
+    color: gray;
+}
+#part-der span{
+    cursor: pointer;
+}
 /*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
 @media (max-width: 1367px){
     .caj-06{
@@ -650,10 +681,3 @@ a{
         grid-template-columns: 50px 1fr;
     }
 } 
-
-video{
-    background-color: #a63c3c;
-background-image: linear-gradient(180deg, #a63c3c 0%, #000000 77%);
-
-
-}
