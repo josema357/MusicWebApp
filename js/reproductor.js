@@ -129,7 +129,7 @@ const cantCajones=document.querySelectorAll(".caja-lr").length;
 for (let i=0; i<cantCajones;i++){
     document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
 }
-
+let listaTotalSong=[];
 async function abrirLista(){
     let titulo=this.children[1].children[0].innerHTML;
     let descripcion=this.children[1].children[1].innerHTML;
@@ -168,79 +168,51 @@ async function abrirLista(){
                     <div class="albu">${data[keys[i]][j].album}</div>
                     <div class="fecha">4 dias</div>
                     <div class="tiempo">00:00</div>
-                    <audio id="${data[keys[i]][j].nombre.toLowerCase()}" src="../canciones/${data[keys[i]][j].artista.toLowerCase()}/${data[keys[i]][j].nombre.toLowerCase()}.mp3"></audio>
                 </div>`)
+                listaTotalSong.push(data[keys[i]][j].nombre)
             }
         }
     }).catch(()=>{
         document.querySelector(".listarep").insertAdjacentHTML("beforeend",`<div class="error-lista">Lista no encontrada</div>`)
     })
-    let botonesMusica=document.getElementById("barra-reproduccion")
-    if(botonesMusica.children.length===0){
-        botonesMusica.innerHTML="";
-    botonesMusica.insertAdjacentHTML("beforeend",`
-        <div id="part-izq">
-            <img id="imagen" src="" alt="">
-            <div id="cancion">
-                <span id="titulo"></span>
-                <span id="artista"></span>
-            </div>
-        </div>
-        <div id="part-der">
-            <span id="play"><img src="./img/pause-fill.svg" alt=""></span>
-            <span id="next"><img src="./img/play-next-fill.svg" alt=""></span>
-        </div>
-    `)
-    }
-
 
     /***************************************************************************************************************/
     const listacanciones=document.querySelectorAll(".cancion");
+    console.log(listaTotalSong)
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].addEventListener("click",playMusic);
     }
-    let tituloCan;
-    const audios=document.querySelectorAll('audio');
+    let indice;
+    let cantante;
     function playMusic(){
-        document.getElementById('barra-reproduccion').style.display='flex'
-        let url=this.children[1].children[0].getAttribute('src');
-        tituloCan=this.children[1].children[1].children[0].innerHTML;
-        let artista=this.children[1].children[1].children[1].innerHTML;
-        document.getElementById('imagen').setAttribute('src',`${url}`)
-        document.getElementById('titulo').innerHTML=tituloCan
-        document.getElementById('artista').innerHTML=artista;
-        for(let i=0;i<listacanciones.length;i++){
-            listacanciones[i].style.backgroundColor='transparent'
+        indice=listaTotalSong.indexOf(this.children[1].children[1].children[0].innerHTML)
+        console.log(indice)
+        console.log(this.children[1].children[1].children[0].innerHTML)
+        cantante=this.children[1].children[1].children[1].innerHTML;
+        document.getElementById("barra-reproduccion").style.display="flex";
+        audio.src=`./canciones/${cantante.toLowerCase()}/${listaTotalSong[indice].toLowerCase()}.mp3`;
+        audio.play()
+    }
+    audio.addEventListener("ended",()=>{
+        audio.src=`./canciones/${cantante.toLowerCase()}/${listaTotalSong[indice+1].toLowerCase()}.mp3`;
+        audio.play()
+        indice++;
+    })
+}
+    const audio=document.querySelector("#part-der audio")
+    const iconoPP=document.querySelector("#play img")
+    const botonPP=document.querySelector("#part-der #play")
+    botonPP.addEventListener("click",pauseMusic)
+    function pauseMusic(){
+        if(audio.paused){
+            audio.play()
+            iconoPP.src="./img/pause-fill.svg"
         }
-        for (let i = 0; i< audios.length; i++) {
-            if(audios[i]!==this.children[5]){
-                audios[i].pause();
-                audios[i].currentTime=0;
-            }else{
-                this.children[5].currentTime=0;
-                this.children[5].play();
-                this.style.backgroundColor='rgba(80, 78, 78, 0.7)'
-                document.querySelector("#play img").src="./img/pause-fill.svg"
-            }
+        else{
+            audio.pause()
+            iconoPP.src="./img/play-fill.svg"
         }
     }
-    document.querySelector("#play").addEventListener("click",()=>{
-        let tituLower=tituloCan.toLowerCase();
-        for (let i = 0; i< audios.length; i++) {
-            if(audios[i].getAttribute('id')===tituLower){
-                if(audios[i].paused===false){
-                    audios[i].pause()
-                    document.querySelector("#play img").src="./img/play-fill.svg"
-                }else{
-                    audios[i].play()
-                    document.querySelector("#play img").src="./img/pause-fill.svg"
-                }
-                
-            }
-        }
-    })
-
-}
 
 /************************************************************************************************************************ */
 window.onresize=medir;
