@@ -130,7 +130,10 @@ for (let i=0; i<cantCajones;i++){
     document.querySelectorAll(".caja-lr")[i].addEventListener("click",abrirLista);
 }
 let listaTotalSong=[];
+let indice;
+let cantante;
 async function abrirLista(){
+    listaTotalSong=[]
     let titulo=this.children[1].children[0].innerHTML;
     let descripcion=this.children[1].children[1].innerHTML;
     document.querySelector(".tres-part1").style.display="none";
@@ -182,37 +185,83 @@ async function abrirLista(){
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].addEventListener("click",playMusic);
     }
-    let indice;
-    let cantante;
+
     function playMusic(){
         indice=listaTotalSong.indexOf(this.children[1].children[1].children[0].innerHTML)
         console.log(indice)
         console.log(this.children[1].children[1].children[0].innerHTML)
-        cantante=this.children[1].children[1].children[1].innerHTML;
+        cantante=this.children[1].children[1].children[1].innerHTML.toLowerCase();
         document.getElementById("barra-reproduccion").style.display="flex";
-        audio.src=`./canciones/${cantante.toLowerCase()}/${listaTotalSong[indice].toLowerCase()}.mp3`;
+        audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
         audio.play()
     }
-    audio.addEventListener("ended",()=>{
-        audio.src=`./canciones/${cantante.toLowerCase()}/${listaTotalSong[indice+1].toLowerCase()}.mp3`;
-        audio.play()
-        indice++;
-    })
 }
-    const audio=document.querySelector("#part-der audio")
-    const iconoPP=document.querySelector("#play img")
-    const botonPP=document.querySelector("#part-der #play")
-    botonPP.addEventListener("click",pauseMusic)
-    function pauseMusic(){
-        if(audio.paused){
-            audio.play()
-            iconoPP.src="./img/pause-fill.svg"
-        }
-        else{
-            audio.pause()
-            iconoPP.src="./img/play-fill.svg"
-        }
+
+const audio=document.querySelector("#part-der audio")
+const iconoPP=document.querySelector("#play img")
+const botonPP=document.querySelector("#part-der #play")
+botonPP.addEventListener("click",pauseMusic)
+function pauseMusic(){
+    if(audio.paused){
+        audio.play()
+        iconoPP.src="./img/pause-fill.svg"
     }
+    else{
+        audio.pause()
+        iconoPP.src="./img/play-fill.svg"
+    }
+}
+
+audio.addEventListener("ended",()=>{
+    console.log(listaTotalSong)
+    console.log(indice)
+    console.log(listaTotalSong[indice+1])
+    audio.src=`./canciones/${cantante}/${listaTotalSong[indice+1].toLowerCase()}.mp3`;
+    audio.play()
+    indice++;
+})
+
+const volumen=document.querySelector("#volum img");
+volumen.addEventListener("click",funVolumen)
+function funVolumen(){
+    audio.volume=!audio.volume;
+    volumen.src=`./img/volume${audio.volume}.svg`;
+}
+
+const siguiente=document.querySelector("#next");
+siguiente.addEventListener("click",()=>{
+    audio.pause()
+    let valor=indice+1
+    console.log(valor)
+    if(valor>5){
+        audio.src=`./canciones/${cantante}/${listaTotalSong[0].toLowerCase()}.mp3`;
+        indice=0
+    }else{
+        audio.src=`./canciones/${cantante}/${listaTotalSong[valor].toLowerCase()}.mp3`;
+        indice++;
+    }
+    audio.play()
+})
+
+const previo=document.querySelector("#previo");
+previo.addEventListener("click",()=>{
+    audio.pause()
+    let valor=indice-1
+    if(valor<0){
+        audio.src=`./canciones/${cantante}/${listaTotalSong[0].toLowerCase()}.mp3`
+        indice=0
+    }else{
+        audio.src=`./canciones/${cantante}/${listaTotalSong[valor].toLowerCase()}.mp3`;
+        indice--;
+    }
+    audio.play()
+})
+
+//descargar
+const descarga=document.querySelector("#descar a");
+descarga.addEventListener("click",(e)=>{
+    descarga.setAttribute("href","./canciones/eminem/not afraid.mp3")
+})
 
 /************************************************************************************************************************ */
 window.onresize=medir;
