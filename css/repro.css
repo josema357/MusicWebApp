@@ -601,6 +601,18 @@ a{
 #part-der span{
     cursor: pointer;
 }
+#part-cen{
+    width: 200px;
+    background-color: rgb(57, 55, 55);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#barra{
+    width: 0%;
+    background-color: rgb(132, 11, 11);
+    padding: 5px 0;
+    border-radius: 5px;
+}
 /*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
 @media (max-width: 1367px){
     .caj-06{

@@ -132,6 +132,8 @@ for (let i=0; i<cantCajones;i++){
 let listaTotalSong=[];
 let indice;
 let cantante;
+const audio=document.querySelector("#part-der audio") 
+
 async function abrirLista(){
     listaTotalSong=[]
     let titulo=this.children[1].children[0].innerHTML;
@@ -181,29 +183,50 @@ async function abrirLista(){
 
     /***************************************************************************************************************/
     const listacanciones=document.querySelectorAll(".cancion");
-    console.log(listaTotalSong)
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].addEventListener("click",playMusic);
     }
 
     function playMusic(){
         indice=listaTotalSong.indexOf(this.children[1].children[1].children[0].innerHTML)
-        console.log(indice)
-        console.log(this.children[1].children[1].children[0].innerHTML)
         cantante=this.children[1].children[1].children[1].innerHTML.toLowerCase();
+        document.querySelector("#imagen").src=`${this.children[1].children[0].getAttribute(`src`)}`;
+        document.querySelector("#titulo").innerHTML=`${this.children[1].children[1].children[0].innerHTML}`;
+        document.querySelector("#artista").innerHTML=`${this.children[1].children[1].children[1].innerHTML}`;
         document.getElementById("barra-reproduccion").style.display="flex";
         audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
         audio.play()
     }
 }
 
-const audio=document.querySelector("#part-der audio")
+const time=document.querySelector("#time")
+const barra=document.querySelector("#barra")
+
+audio.addEventListener("timeupdate",()=>{
+    setTimeout(()=>{time.innerHTML=`${conversion(audio.currentTime)}/${conversion(audio.duration)}`},199)
+    actulizarBarra();
+})
+
+function actulizarBarra(){
+    if(audio.currentTime>0){
+        barra.style.width=`${(audio.currentTime*100)/audio.duration}%`
+    }
+}
+
+function conversion(segundos){
+    let d=new Date(segundos*1000);
+    let segundo=(d.getSeconds()<=9) ? "0"+d.getSeconds() : d.getSeconds();
+    let minuto=(d.getMinutes()<=9) ? "0"+d.getMinutes() : d.getMinutes();
+    return `${minuto}:${segundo}`;
+}
+
 const iconoPP=document.querySelector("#play img")
 const botonPP=document.querySelector("#part-der #play")
 botonPP.addEventListener("click",pauseMusic)
 function pauseMusic(){
     if(audio.paused){
         audio.play()
+        console.log(audio.duration)
         iconoPP.src="./img/pause-fill.svg"
     }
     else{
@@ -255,12 +278,13 @@ previo.addEventListener("click",()=>{
         indice--;
     }
     audio.play()
+    des
 })
 
 //descargar
 const descarga=document.querySelector("#descar a");
 descarga.addEventListener("click",(e)=>{
-    descarga.setAttribute("href","./canciones/eminem/not afraid.mp3")
+    descarga.setAttribute("href",`${audio.getAttribute("src")}`)
 })
 
 /************************************************************************************************************************ */
