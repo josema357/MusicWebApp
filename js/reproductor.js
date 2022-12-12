@@ -201,6 +201,33 @@ async function abrirLista(){
 
 const time=document.querySelector("#time")
 const barra=document.querySelector("#barra")
+const barraInicial=document.querySelector("#part-cen")
+
+/*************************************************************** */
+barraInicial.addEventListener("click",tiempoRep)
+barraInicial.addEventListener("mousedown",arrastre)
+
+function arrastre(){
+    barraInicial.addEventListener("mousemove",(e)=>{
+        console.log(e.offsetX)
+   })
+}
+
+barraInicial.addEventListener("mouseup",()=>{
+    barraInicial.removeEventListener("mousemove",arrastre);
+    console.log("fue")
+})
+/************************************************************** */
+
+function tiempoRep(e){  
+    let clickBarra=e.offsetX;
+    let ancho=barraInicial.offsetWidth;
+    let porcentaje=(100*clickBarra)/ancho;
+    let posicion=audio.duration*(porcentaje/100);
+    console.log(posicion)
+    audio.currentTime=posicion;
+}
+
 
 audio.addEventListener("timeupdate",()=>{
     setTimeout(()=>{time.innerHTML=`${conversion(audio.currentTime)}/${conversion(audio.duration)}`},199)
