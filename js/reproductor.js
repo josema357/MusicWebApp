@@ -202,31 +202,35 @@ async function abrirLista(){
 const time=document.querySelector("#time")
 const barra=document.querySelector("#barra")
 const barraInicial=document.querySelector("#part-cen")
+const central=document.querySelector("#central")
 
 /*************************************************************** */
-barraInicial.addEventListener("click",tiempoRep)
-barraInicial.addEventListener("mousedown",arrastre)
-
-function arrastre(){
-    barraInicial.addEventListener("mousemove",(e)=>{
-        console.log(e.offsetX)
-   })
-}
-
-barraInicial.addEventListener("mouseup",()=>{
-    barraInicial.removeEventListener("mousemove",arrastre);
-    console.log("fue")
-})
-/************************************************************** */
+barraInicial.addEventListener("mousedown",tiempoRep)
+barraInicial.addEventListener("mouseup",soltarclick)
+central.addEventListener("mouseup",soltarclick)
 
 function tiempoRep(e){  
+    audio.pause()
     let clickBarra=e.offsetX;
     let ancho=barraInicial.offsetWidth;
     let porcentaje=(100*clickBarra)/ancho;
     let posicion=audio.duration*(porcentaje/100);
     console.log(posicion)
     audio.currentTime=posicion;
+
+    barraInicial.addEventListener("mousemove",arrastre)
 }
+
+function arrastre(e){
+    tiempoRep(e)
+}
+function soltarclick(){
+    barraInicial.removeEventListener("mousemove",arrastre);
+    audio.play()
+    console.log("fue")
+}
+
+/************************************************************** */
 
 
 audio.addEventListener("timeupdate",()=>{
@@ -305,7 +309,6 @@ previo.addEventListener("click",()=>{
         indice--;
     }
     audio.play()
-    des
 })
 
 //descargar

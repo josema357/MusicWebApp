@@ -10,6 +10,8 @@ body{
     background-color: black;
     font-size: 0.9rem;
     font-weight: 900;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 #section-1{
     display: grid;
@@ -161,6 +163,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
+    overflow-y: scroll;
 }
 .tres-part1{
     width: 100%;
@@ -582,6 +586,11 @@ a{
     background-color: black;
     padding: 10px 30px;
     box-sizing: border-box;
+    -youbkit-touch-callout: none;
+    -youbkit-user-select: none;   
+    -moz-user-select: none;    
+    -ms-user-select: none;        
+    user-select: none;
 }
 #part-izq{
     display: flex;
@@ -595,23 +604,73 @@ a{
     flex-direction: column;
     padding-left: 20px;
 }
+#titulo{
+    white-space: nowrap;
+}
 #artista{
     color: gray;
 }
-#part-der span{
+#part-der{
+    display: flex;
+    align-items: center;
+    gap
+    : 5px;
+}
+#part-der span:nth-child(1){
+    margin-right: 1rem;
+}
+#part-der span:nth-child(2),
+#part-der span:nth-child(3),
+#part-der span:nth-child(4),
+#part-der span:nth-child(5){
     cursor: pointer;
 }
+#central{
+    flex: 1;
+    display: flex;
+    padding: 20px 0;
+}
 #part-cen{
-    width: 200px;
+    width: 100%;
     background-color: rgb(57, 55, 55);
     border-radius: 5px;
     cursor: pointer;
+    padding: 0;
+    margin: 0 1.5rem;
+    box-sizing: border-box;
 }
 #barra{
     width: 0%;
     background-color: rgb(132, 11, 11);
     padding: 5px 0;
     border-radius: 5px;
+}
+/*-----------------------------------------------SCROLL-----------------------------------------------------------------*/
+
+#tres::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#tres::-webkit-scrollbar:vertical {
+    width: 1px;
+}
+
+#tres::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+#tres::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+#tres::-webkit-scrollbar-thumb {
+    background-color: rgb(39, 37, 37);
+    border-radius: 20px;
+    border: 1px solid var(--color-two);
+}
+
+#tres::-webkit-scrollbar-track {
+    border-radius: 10px;  
 }
 /*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
 @media (max-width: 1367px){
