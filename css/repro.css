@@ -10,8 +10,6 @@ body{
     background-color: black;
     font-size: 0.9rem;
     font-weight: 900;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 #section-1{
     display: grid;
@@ -32,7 +30,7 @@ body{
     justify-content: space-between;
     position: fixed;
     width: 240px;
-    height: calc(100% - 60px);
+    height: 100%;
 }
 .menu{
     width: calc(100% - 5px);
@@ -101,6 +99,7 @@ body{
 }
 .caja-enlaces{
     text-align: center;
+    margin-bottom: 70px;
 }
 /*-----------------------------------------DIV-(DOS)--------------------------------------------------------*/
 #dos{
@@ -613,8 +612,7 @@ a{
 #part-der{
     display: flex;
     align-items: center;
-    gap
-    : 5px;
+    gap: 5px;
 }
 #part-der span:nth-child(1){
     margin-right: 1rem;
@@ -644,6 +642,40 @@ a{
     background-color: rgb(132, 11, 11);
     padding: 5px 0;
     border-radius: 5px;
+}
+#ran-volumen{
+    display: none;
+    height: 20px;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    -webkit-appearance: none; 
+    appearance: none;
+    background-image:linear-gradient(to right, rgb(132, 11, 11)  calc(var(--value)*100%), rgb(57, 55, 55) 0);
+}
+#ran-volumen,
+#ran-volumen::-webkit-slider-runnable-track,
+#ran-volumen::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+#ran-volumen::-webkit-slider-thumb {
+    background-color: rgb(132, 11, 11);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-top: -2px;
+}
+#ran-volumen::-moz-range-thumb {
+    background-color: rgb(132, 11, 11);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+#ran-volumen::-ms-thumb {
+    background-color: rgb(132, 11, 11);
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
 }
 /*-----------------------------------------------SCROLL-----------------------------------------------------------------*/
 

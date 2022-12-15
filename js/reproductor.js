@@ -197,6 +197,7 @@ async function abrirLista(){
         audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
         audio.play()
     }
+    ranVolumen.style.setProperty("--value",ranVolumen.value);
 }
 
 const time=document.querySelector("#time")
@@ -276,11 +277,22 @@ audio.addEventListener("ended",()=>{
 })
 
 const volumen=document.querySelector("#volum img");
+const ranVolumen=document.querySelector("#ran-volumen");
+ranVolumen.addEventListener("input",rango);
 volumen.addEventListener("click",funVolumen)
 function funVolumen(){
-    audio.volume=!audio.volume;
-    volumen.src=`./img/volume${audio.volume}.svg`;
+    if(ranVolumen.style.display==="block"){
+        ranVolumen.style.display="none"
+    }else{
+        ranVolumen.style.display="block"
+    }
 }
+function rango(e){
+    let vol= e.target.value;
+    audio.volume=vol
+    ranVolumen.style.setProperty("--value",ranVolumen.value);
+}
+
 
 const siguiente=document.querySelector("#next");
 siguiente.addEventListener("click",()=>{
