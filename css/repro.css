@@ -162,8 +162,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-    overflow-y: scroll;
 }
 .tres-part1{
     width: 100%;
@@ -679,29 +677,28 @@ a{
 }
 /*-----------------------------------------------SCROLL-----------------------------------------------------------------*/
 
-#tres::-webkit-scrollbar {
+body::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
-#tres::-webkit-scrollbar:vertical {
-    width: 1px;
+body::-webkit-scrollbar:vertical {
+    width: 10px;
 }
 
-#tres::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
     display: none;
 } 
-
-#tres::-webkit-scrollbar:horizontal {
+body::-webkit-scrollbar:horizontal {
     height: 10px;
 }
 
-#tres::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background-color: rgb(39, 37, 37);
     border-radius: 20px;
     border: 1px solid var(--color-two);
 }
 
-#tres::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
 /*--------------------------------------MEDIA QUERYS--------------------------------------------------------------------*/
