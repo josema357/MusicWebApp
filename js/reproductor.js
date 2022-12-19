@@ -133,6 +133,7 @@ let listaTotalSong=[];
 let indice;
 let cantante;
 const audio=document.querySelector("#part-der audio") 
+let listacanciones;
 
 async function abrirLista(){
     listaTotalSong=[]
@@ -177,12 +178,13 @@ async function abrirLista(){
                 listaTotalSong.push(data[keys[i]][j].nombre)
             }
         }
+        cantante=data[keys[0]][0].artista;
     }).catch(()=>{
         document.querySelector(".listarep").insertAdjacentHTML("beforeend",`<div class="error-lista">Lista no encontrada</div>`)
     })
 
     /***************************************************************************************************************/
-    const listacanciones=document.querySelectorAll(".cancion");
+    listacanciones=document.querySelectorAll(".cancion");
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].addEventListener("click",playMusic);
     }
@@ -195,10 +197,32 @@ async function abrirLista(){
         document.querySelector("#artista").innerHTML=`${this.children[1].children[1].children[1].innerHTML}`;
         document.getElementById("barra-reproduccion").style.display="flex";
         audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
-        audio.play()
+        for(let i=0;i<listacanciones.length;i++){
+            listacanciones[i].style.background="transparent"
+        }
+        this.style.background="rgba(80, 78, 78, 0.7)";
+        audio.play();
     }
     ranVolumen.style.setProperty("--value",ranVolumen.value);
 }
+const reproAuto=document.querySelector(".iconos span:nth-child(1)");
+reproAuto.addEventListener("click",()=>{
+    indice=0;
+    document.querySelector("#imagen").src=`${listacanciones[0].children[1].children[0].getAttribute(`src`)}`;
+    document.querySelector("#titulo").innerHTML=`${listacanciones[0].children[1].children[1].children[0].innerHTML}`;
+    document.querySelector("#artista").innerHTML=`${listacanciones[0].children[1].children[1].children[1].innerHTML}`;
+    document.getElementById("barra-reproduccion").style.display="flex";
+    for(let i=0;i<listacanciones.length;i++){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+            listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
+        }
+        else{
+            listacanciones[i].style.background="transparent"
+        }
+    }
+    audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
+    audio.play()
+})
 
 const time=document.querySelector("#time")
 const barra=document.querySelector("#barra")
@@ -272,7 +296,18 @@ audio.addEventListener("ended",()=>{
     console.log(indice)
     console.log(listaTotalSong[indice+1])
     audio.src=`./canciones/${cantante}/${listaTotalSong[indice+1].toLowerCase()}.mp3`;
+    for(let i=0;i<listacanciones.length;i++){
+        if(listaTotalSong[indice+1]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+            listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
+        }
+        else{
+            listacanciones[i].style.background="transparent"
+        }
+    }
     audio.play()
+    document.querySelector("#imagen").src=`${listacanciones[indice+1].children[1].children[0].getAttribute(`src`)}`;
+    document.querySelector("#titulo").innerHTML=`${listacanciones[indice+1].children[1].children[1].children[0].innerHTML}`;
+    document.querySelector("#artista").innerHTML=`${listacanciones[indice+1].children[1].children[1].children[1].innerHTML}`;
     indice++;
 })
 
@@ -301,10 +336,24 @@ siguiente.addEventListener("click",()=>{
     console.log(valor)
     if(valor>5){
         audio.src=`./canciones/${cantante}/${listaTotalSong[0].toLowerCase()}.mp3`;
+        document.querySelector("#imagen").src=`${listacanciones[0].children[1].children[0].getAttribute(`src`)}`;
+        document.querySelector("#titulo").innerHTML=`${listacanciones[0].children[1].children[1].children[0].innerHTML}`;
+        document.querySelector("#artista").innerHTML=`${listacanciones[0].children[1].children[1].children[1].innerHTML}`;
         indice=0
     }else{
         audio.src=`./canciones/${cantante}/${listaTotalSong[valor].toLowerCase()}.mp3`;
         indice++;
+        document.querySelector("#imagen").src=`${listacanciones[valor].children[1].children[0].getAttribute(`src`)}`;
+        document.querySelector("#titulo").innerHTML=`${listacanciones[valor].children[1].children[1].children[0].innerHTML}`;
+        document.querySelector("#artista").innerHTML=`${listacanciones[valor].children[1].children[1].children[1].innerHTML}`;
+    }
+    for(let i=0;i<listacanciones.length;i++){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+            listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
+        }
+        else{
+            listacanciones[i].style.background="transparent"
+        }
     }
     audio.play()
 })
@@ -315,10 +364,24 @@ previo.addEventListener("click",()=>{
     let valor=indice-1
     if(valor<0){
         audio.src=`./canciones/${cantante}/${listaTotalSong[0].toLowerCase()}.mp3`
+        document.querySelector("#imagen").src=`${listacanciones[0].children[1].children[0].getAttribute(`src`)}`;
+        document.querySelector("#titulo").innerHTML=`${listacanciones[0].children[1].children[1].children[0].innerHTML}`;
+        document.querySelector("#artista").innerHTML=`${listacanciones[0].children[1].children[1].children[1].innerHTML}`;
         indice=0
     }else{
         audio.src=`./canciones/${cantante}/${listaTotalSong[valor].toLowerCase()}.mp3`;
         indice--;
+        document.querySelector("#imagen").src=`${listacanciones[valor].children[1].children[0].getAttribute(`src`)}`;
+        document.querySelector("#titulo").innerHTML=`${listacanciones[valor].children[1].children[1].children[0].innerHTML}`;
+        document.querySelector("#artista").innerHTML=`${listacanciones[valor].children[1].children[1].children[1].innerHTML}`;
+    }
+    for(let i=0;i<listacanciones.length;i++){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+            listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
+        }
+        else{
+            listacanciones[i].style.background="transparent"
+        }
     }
     audio.play()
 })
