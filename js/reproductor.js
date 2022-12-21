@@ -7,7 +7,6 @@ let listaRep=document.querySelector("#subo-04");
 let gustos=document.querySelector("#subo-05");
 let noNow=document.querySelectorAll(".sn-01");
 let flecha=document.querySelector(".flechas");
-
 let listasPlay=fetch(`./canciones/listas.txt`).then((respuesta)=>respuesta.json())
 
 buscar.addEventListener("click", buscador);
@@ -20,26 +19,7 @@ for(let i=0;i<noNow.length;i++){
 }
 flecha.addEventListener("click",atras);
 
-const cuadro=()=>{
-    document.querySelector(".contenedor-mensaje").style.display="none";
-    document.querySelector(".contenedor-mensaje-02").style.display="none";
-    document.querySelector(".contenedor-mensaje-03").style.display="none";
-}
-const artistas=()=>{
-    document.querySelector(".contenedor-grid").innerHTML="";
-    document.querySelector(".explora").style.display="block";
-    listasPlay.then((data)=>{
-        console.log(data.lista)
-        for(let i=0;i<data.lista.length;i++){
-            document.querySelector(".contenedor-grid").insertAdjacentHTML("beforeend",`<div class="artis-grid" style="background-color: ${data.lista[i].colors};">${data.lista[i].artis}</div>`);
-        }
-    })
-}
-
-function atras(){
-    home()
-}
-
+//Funcion para el buscador
 function buscador(){
     document.querySelector(".flechas").style.display="block";
     document.querySelector(".buscador").style.display="flex"
@@ -49,6 +29,8 @@ function buscador(){
     cambiarColor("linear-gradient(180deg, #1b1b1b 33%, #121212 58%)")
     document.querySelector(".lista-canciones").style.display="none";
 }
+
+//Funcion del inicio
 function home(){
     document.querySelector(".flechas").style.display="none"
     document.querySelector(".buscador").style.display="none"
@@ -59,6 +41,30 @@ function home(){
     cambiarColor("linear-gradient(180deg, #1b1b1b 33%, #121212 58%)")
 }
 
+//Funcion para ocultar los cuadros de dialogo
+function cuadro(){
+    document.querySelector(".contenedor-mensaje").style.display="none";
+    document.querySelector(".contenedor-mensaje-02").style.display="none";
+    document.querySelector(".contenedor-mensaje-03").style.display="none";
+}
+
+//Funcion para mostrar los albumes en el buscador
+function artistas(){
+    document.querySelector(".contenedor-grid").innerHTML="";
+    document.querySelector(".explora").style.display="block";
+    listasPlay.then((data)=>{
+        for(let i=0;i<data.lista.length;i++){
+            document.querySelector(".contenedor-grid").insertAdjacentHTML("beforeend",`<div class="artis-grid" style="background-color: ${data.lista[i].colors};">${data.lista[i].artis}</div>`);
+        }
+    })
+}
+
+//Funcion del la flecha para retroceder al inicio
+function atras(){
+    home()
+}
+
+//Funciones para los cuadros de texto azules
 function bibliote(){
     cuadro()
     document.querySelector(".contenedor-mensaje").style.display="flex";
@@ -74,13 +80,17 @@ function likeado(){
     cuadro()
     document.querySelector(".contenedor-mensaje-03").style.display="flex";
 }
-/******************************************************************************************************************************* */
+
+/*****************************************************************************************************************************************/
+
 const resize=document.querySelector(".resize");
 const uno=document.getElementById("uno");
 const dos=document.getElementById("dos");
 const sec1=document.getElementById("section-1");
- const body=document.querySelector("body");
+const body=document.querySelector("body");
 resize.addEventListener("mousedown",mousedown);
+
+//Funcion para redimensionar el menu
 function mousedown(e){
     addEventListener("mousemove",mousemove);
     addEventListener("mouseup",mouseup);
@@ -117,10 +127,9 @@ function mousedown(e){
     }
 }
 
-
-
 /******************************************************************************************************************************************* */
 
+//Funcion para cambiar el background
 function cambiarColor(color){
     document.querySelector("#tres").style.background=color;;
 }
@@ -135,6 +144,7 @@ let cantante;
 const audio=document.querySelector("#part-der audio") 
 let listacanciones;
 
+//Funcion para construir las listas de reproduccion
 async function abrirLista(){
     listaTotalSong=[]
     let titulo=this.children[1].children[0].innerHTML;
@@ -183,29 +193,33 @@ async function abrirLista(){
         document.querySelector(".listarep").insertAdjacentHTML("beforeend",`<div class="error-lista">Lista no encontrada</div>`)
     })
 
-    /***************************************************************************************************************/
     listacanciones=document.querySelectorAll(".cancion");
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].addEventListener("click",playMusic);
     }
+}
 
-    function playMusic(){
-        indice=listaTotalSong.indexOf(this.children[1].children[1].children[0].innerHTML)
-        cantante=this.children[1].children[1].children[1].innerHTML.toLowerCase();
-        document.querySelector("#imagen").src=`${this.children[1].children[0].getAttribute(`src`)}`;
-        document.querySelector("#titulo").innerHTML=`${this.children[1].children[1].children[0].innerHTML}`;
-        document.querySelector("#artista").innerHTML=`${this.children[1].children[1].children[1].innerHTML}`;
-        document.getElementById("barra-reproduccion").style.display="flex";
-        audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
-        for(let i=0;i<listacanciones.length;i++){
-            listacanciones[i].style.background="transparent"
-        }
-        this.style.background="rgba(80, 78, 78, 0.7)";
-        audio.play();
+//Funcion para reproducir y mostrar los controles
+function playMusic(){
+    indice=listaTotalSong.indexOf(this.children[1].children[1].children[0].innerHTML)
+    cantante=this.children[1].children[1].children[1].innerHTML.toLowerCase();
+    document.querySelector("#imagen").src=`${this.children[1].children[0].getAttribute(`src`)}`;
+    document.querySelector("#titulo").innerHTML=`${this.children[1].children[1].children[0].innerHTML}`;
+    document.querySelector("#artista").innerHTML=`${this.children[1].children[1].children[1].innerHTML}`;
+    document.getElementById("barra-reproduccion").style.display="flex";
+    audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
+    for(let i=0;i<listacanciones.length;i++){
+        listacanciones[i].style.background="transparent"
     }
+    this.style.background="rgba(80, 78, 78, 0.7)";
+    audio.play();
     ranVolumen.style.setProperty("--value",ranVolumen.value);
 }
+
+
+
 const reproAuto=document.querySelector(".iconos span:nth-child(1)");
+//Funcion para empezar la reproduccion automatica 
 reproAuto.addEventListener("click",()=>{
     indice=0;
     document.querySelector("#imagen").src=`${listacanciones[0].children[1].children[0].getAttribute(`src`)}`;
@@ -229,20 +243,18 @@ const barra=document.querySelector("#barra")
 const barraInicial=document.querySelector("#part-cen")
 const central=document.querySelector("#central")
 
-/*************************************************************** */
 barraInicial.addEventListener("mousedown",tiempoRep)
 barraInicial.addEventListener("mouseup",soltarclick)
 central.addEventListener("mouseup",soltarclick)
 
+//Funciones  adelantar o retroceder con la barra de progreso 
 function tiempoRep(e){  
     audio.pause()
     let clickBarra=e.offsetX;
     let ancho=barraInicial.offsetWidth;
     let porcentaje=(100*clickBarra)/ancho;
     let posicion=audio.duration*(porcentaje/100);
-    console.log(posicion)
     audio.currentTime=posicion;
-
     barraInicial.addEventListener("mousemove",arrastre)
 }
 
@@ -252,23 +264,22 @@ function arrastre(e){
 function soltarclick(){
     barraInicial.removeEventListener("mousemove",arrastre);
     audio.play()
-    console.log("fue")
 }
 
-/************************************************************** */
-
-
+//Actualizar el tiempo actual y el tiempo de duracion
 audio.addEventListener("timeupdate",()=>{
     setTimeout(()=>{time.innerHTML=`${conversion(audio.currentTime)}/${conversion(audio.duration)}`},199)
     actulizarBarra();
 })
 
+//Funcion para actualizar la barra de progreso
 function actulizarBarra(){
     if(audio.currentTime>0){
-        barra.style.width=`${(audio.currentTime*100)/audio.duration}%`
+        barra.style.width=`${(audio.currentTime*100)/audio.duration}%`;
     }
 }
 
+//Funcion para dar formato a los segundos de duracion
 function conversion(segundos){
     let d=new Date(segundos*1000);
     let segundo=(d.getSeconds()<=9) ? "0"+d.getSeconds() : d.getSeconds();
@@ -276,13 +287,14 @@ function conversion(segundos){
     return `${minuto}:${segundo}`;
 }
 
-const iconoPP=document.querySelector("#play img")
-const botonPP=document.querySelector("#part-der #play")
-botonPP.addEventListener("click",pauseMusic)
+const iconoPP=document.querySelector("#play img");
+const botonPP=document.querySelector("#part-der #play");
+botonPP.addEventListener("click",pauseMusic);
+
+//Funcion para pausar o continuar la musica
 function pauseMusic(){
     if(audio.paused){
         audio.play()
-        console.log(audio.duration)
         iconoPP.src="./img/pause-fill.svg"
     }
     else{
@@ -291,10 +303,8 @@ function pauseMusic(){
     }
 }
 
+//Funcion para que cuando termine una cancion empiece la siguiente 
 audio.addEventListener("ended",()=>{
-    console.log(listaTotalSong)
-    console.log(indice)
-    console.log(listaTotalSong[indice+1])
     audio.src=`./canciones/${cantante}/${listaTotalSong[indice+1].toLowerCase()}.mp3`;
     for(let i=0;i<listacanciones.length;i++){
         if(listaTotalSong[indice+1]===listacanciones[i].children[1].children[1].children[0].innerHTML){
@@ -315,6 +325,8 @@ const volumen=document.querySelector("#volum img");
 const ranVolumen=document.querySelector("#ran-volumen");
 ranVolumen.addEventListener("input",rango);
 volumen.addEventListener("click",funVolumen)
+
+//Funcion para que aparezca o desaparezca la barra de volumen
 function funVolumen(){
     if(ranVolumen.style.display==="block"){
         ranVolumen.style.display="none"
@@ -322,6 +334,8 @@ function funVolumen(){
         ranVolumen.style.display="block"
     }
 }
+
+//Funcion para actualizar la barra del volumen
 function rango(e){
     let vol= e.target.value;
     audio.volume=vol
@@ -330,10 +344,11 @@ function rango(e){
 
 
 const siguiente=document.querySelector("#next");
+
+//Funcion para saltar a la siguiente cancion
 siguiente.addEventListener("click",()=>{
     audio.pause()
     let valor=indice+1
-    console.log(valor)
     if(valor>5){
         audio.src=`./canciones/${cantante}/${listaTotalSong[0].toLowerCase()}.mp3`;
         document.querySelector("#imagen").src=`${listacanciones[0].children[1].children[0].getAttribute(`src`)}`;
@@ -359,6 +374,8 @@ siguiente.addEventListener("click",()=>{
 })
 
 const previo=document.querySelector("#previo");
+
+//Funcion para regresar a la cancion anterior
 previo.addEventListener("click",()=>{
     audio.pause()
     let valor=indice-1
@@ -386,13 +403,13 @@ previo.addEventListener("click",()=>{
     audio.play()
 })
 
-//descargar
+//Funcion para descargar
 const descarga=document.querySelector("#descar a");
 descarga.addEventListener("click",(e)=>{
     descarga.setAttribute("href",`${audio.getAttribute("src")}`)
 })
 
-/************************************************************************************************************************ */
+//Funcion para medir el ancho del navegador
 window.onresize=medir;
 function medir(){
     let ancho=window.innerWidth
@@ -406,5 +423,3 @@ function medir(){
         document.querySelector(".barra").style.display="block";
     }
 }
-
-/**************************************************************************************************************************************** */

@@ -644,7 +644,7 @@ a{
 #ran-volumen{
     display: none;
     height: 20px;
-    width: 100%;
+    width: 100px;
     height: 10px;
     border-radius: 5px;
     -webkit-appearance: none; 
@@ -755,14 +755,15 @@ body::-webkit-scrollbar-track {
     }
 }
 @media (max-width: 827px){
+    body{
+        overflow-x: hidden;
+    }
+
     .informacion{
         flex-direction: column;
     }
     .caja_art{
         min-width: 180px;
-    }
-    body{
-        overflow-x: hidden;
     }
 }
 @media (max-width: 800px){
