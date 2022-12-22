@@ -151,10 +151,16 @@ body{
     padding: 0.8rem 2rem;
     white-space: nowrap;
 }
+.buscar-mobile{
+    display: none;
+    margin-right: 10px;
+}
+#logo-mobile{
+    display: none;
+}
 /*----------------------------------------------------------------------------------------------------------*/
 #tres{
     grid-area: main-view;
-    /*background-color: #1b1b1b;*/
     background: linear-gradient(180deg, #1b1b1b 33%, #121212 58%);
     color: white;
     padding: 40px 1.5rem 20px;
@@ -191,6 +197,7 @@ body{
 }
 .se_01 .view{
     cursor: pointer;
+    font-family: 'Lato', sans-serif;
 }
 a{
     text-decoration: none;
@@ -570,6 +577,7 @@ a{
     font-size: 1.5rem;
     color: gray;
     letter-spacing: 0.8rem;
+    font-family: 'Lato', sans-serif;
 }
 /*************************************************REPRODUCTOR************************************************************/
 #barra-reproduccion{
@@ -661,7 +669,7 @@ a{
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    margin-top: -2px;
+    margin-top: -1px;
 }
 #ran-volumen::-moz-range-thumb {
     background-color: rgb(132, 11, 11);
@@ -758,12 +766,102 @@ body::-webkit-scrollbar-track {
     body{
         overflow-x: hidden;
     }
-
-    .informacion{
+    /***********************************************************/
+    #section-1{
+        display: flex;
         flex-direction: column;
+        width: 100%;
+    }
+    #uno{
+        display: none;
+    }
+    #dos{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .buscar-mobile{
+        display: block;
+    }
+    #logo-mobile{
+        display: block;
+    }
+    #tres{
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 5px 20px;
+    }
+    .se_02{
+        overflow-x: scroll;
+    }
+    /*********/
+    .se_02::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    
+    .se_02::-webkit-scrollbar:vertical {
+        width: 10px;
+    }
+    
+    .se_02::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+        display: none;
+    } 
+    .se_02::-webkit-scrollbar:horizontal {
+        height: 8px;
+    }
+    
+    .se_02::-webkit-scrollbar-thumb {
+        background-color: rgb(39, 37, 37);
+        border-radius: 20px;
+        border: 1px solid var(--color-two);
+    }
+    
+    .se_02::-webkit-scrollbar-track {
+        border-radius: 10px;  
+    }
+    /*********/
+    .se_02 img{
+        width: 100%;
+        height: 120px;
+        border-radius: 0;
+    }
+    .titulo-lista{
+        font-size: 16px;
+    }
+    .caj-des{
+        font-size: 10px;
+        text-align: center;
     }
     .caja_art{
-        min-width: 180px;
+        display: block;
+        width: 120px;
+        min-width: 120px;
+        padding: 10px 5px;
+        background: none;
+        margin: 0;
+    }
+    .peque-des{
+        display: none;
+    }
+
+    #barra-reproduccion{
+        flex-direction: column;
+    }
+    #central{
+        width: 100%;
+        padding: 5px;
+    }
+    #part-izq{
+        display: none;
+    }   
+    #time{
+        position: absolute;
+        top: 25px;
+        left: 60px;
+        font-size: 12px;
+    }
+    /*************************************************************************/
+    .informacion{
+        flex-direction: column;
     }
 }
 @media (max-width: 800px){
@@ -772,13 +870,65 @@ body::-webkit-scrollbar-track {
     }
 }
 @media (max-width: 670px){
+    .se_02::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    .encabeza{
+        grid-template-columns: 50px 1fr 50px;
+    }
+    .cancion{
+        grid-template-columns: 50px 1fr 50px;
+    }
+    .error-lista{
+        font-size: 18px;
+        letter-spacing: 0.6rem;
+    }
+    #barra-reproduccion{
+        padding: 10px;
+    }
+    #part-cen{
+        margin: 0;
+    }
+    #time{
+        position: absolute;
+        top: 25px;
+        left: 15px;
+        font-size: 12px;
+    }
+    #part-der{
+        padding-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+        max-width: 200px;
+    }
+    #descar{
+        display: none;
+    }
+    #volum{
+        display: none;
+    }
+} 
+@media (max-width: 400px) {
+    .titu{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .view{
+        display: none;
+    }
+    .count{
+        display: none;
+    }
     .tiempo{
         display: none;
     }
     .encabeza{
-        grid-template-columns: 50px 1fr;
+        grid-template-columns: 1fr;
+    }
+    .en-01{
+        display: none;
     }
     .cancion{
-        grid-template-columns: 50px 1fr;
+        grid-template-columns: 1fr;
     }
-} 
+}

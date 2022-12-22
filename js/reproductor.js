@@ -417,9 +417,11 @@ function medir(){
         document.querySelector(".desplegable").style.display="flex";
         document.querySelector(".opciones-nav").style.display="none";
         document.querySelector(".barra").style.display="none";
+        document.querySelector(".sesion").style.display="none";
     }else{
         document.querySelector(".desplegable").style.display="none";
-        document.querySelector(".opciones-nav").style.display="block";
-        document.querySelector(".barra").style.display="block";
+        document.querySelector(".opciones-nav").style.display="flex";
+        document.querySelector(".barra").style.display="flex";
+        document.querySelector(".sesion").style.display="flex";
     }
 }
