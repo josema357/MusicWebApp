@@ -207,6 +207,7 @@ function playMusic(){
     document.querySelector("#titulo").innerHTML=`${this.children[1].children[1].children[0].innerHTML}`;
     document.querySelector("#artista").innerHTML=`${this.children[1].children[1].children[1].innerHTML}`;
     document.getElementById("barra-reproduccion").style.display="flex";
+    document.getElementById("tres").style.marginBottom="60px";
     audio.src=`./canciones/${cantante}/${listaTotalSong[indice].toLowerCase()}.mp3`;
     for(let i=0;i<listacanciones.length;i++){
         listacanciones[i].style.background="transparent"
@@ -319,6 +320,11 @@ audio.addEventListener("ended",()=>{
     document.querySelector("#titulo").innerHTML=`${listacanciones[indice+1].children[1].children[1].children[0].innerHTML}`;
     document.querySelector("#artista").innerHTML=`${listacanciones[indice+1].children[1].children[1].children[1].innerHTML}`;
     indice++;
+})
+
+//Funcion para colocar icono de pausa cuando el audio se reproduzca
+audio.addEventListener("play",()=>{
+    iconoPP.src="./img/pause-fill.svg";
 })
 
 const volumen=document.querySelector("#volum img");

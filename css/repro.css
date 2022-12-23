@@ -765,6 +765,7 @@ body::-webkit-scrollbar-track {
 @media (max-width: 827px){
     body{
         overflow-x: hidden;
+        font-size: 16px;
     }
     /***********************************************************/
     #section-1{
@@ -792,6 +793,9 @@ body::-webkit-scrollbar-track {
     }
     .se_02{
         overflow-x: scroll;
+    }
+    .descrip span{
+        font-size: 14px;
     }
     /*********/
     .se_02::-webkit-scrollbar {
@@ -849,6 +853,7 @@ body::-webkit-scrollbar-track {
     #central{
         width: 100%;
         padding: 5px;
+        box-sizing: border-box;
     }
     #part-izq{
         display: none;
@@ -884,10 +889,11 @@ body::-webkit-scrollbar-track {
         letter-spacing: 0.6rem;
     }
     #barra-reproduccion{
-        padding: 10px;
+        padding: 10px 10px 5px;
     }
     #part-cen{
         margin: 0;
+        height: 10px;
     }
     #time{
         position: absolute;
