@@ -797,6 +797,9 @@ body::-webkit-scrollbar-track {
     .descrip span{
         font-size: 14px;
     }
+    .view{
+        font-size: 12px;
+    }
     /*********/
     .se_02::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -863,6 +866,12 @@ body::-webkit-scrollbar-track {
         top: 25px;
         left: 60px;
         font-size: 12px;
+    }
+    .info2-01 span a{
+        font-size: 13px;
+    }
+    .flex-info2 div span{
+        font-size: 10px;
     }
     /*************************************************************************/
     .informacion{
