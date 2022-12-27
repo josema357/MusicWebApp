@@ -183,7 +183,7 @@ async function abrirLista(){
                     </div>
                     <div class="albu">${data[keys[i]][j].album}</div>
                     <div class="fecha">4 dias</div>
-                    <div class="tiempo">00:00</div>
+                    <div class="tiempo">${data[keys[i]][j].tiempo}</div>
                 </div>`)
                 listaTotalSong.push(data[keys[i]][j].nombre.toLowerCase())
             }
@@ -227,7 +227,7 @@ reproAuto.addEventListener("click",()=>{
     document.querySelector("#artista").innerHTML=`${listacanciones[0].children[1].children[1].children[1].innerHTML}`;
     document.getElementById("barra-reproduccion").style.display="flex";
     for(let i=0;i<listacanciones.length;i++){
-        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML.toLowerCase()){
             listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
         }
         else{
@@ -368,7 +368,7 @@ siguiente.addEventListener("click",()=>{
         document.querySelector("#artista").innerHTML=`${listacanciones[valor].children[1].children[1].children[1].innerHTML}`;
     }
     for(let i=0;i<listacanciones.length;i++){
-        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML.toLowerCase()){
             listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
         }
         else{
@@ -398,7 +398,7 @@ previo.addEventListener("click",()=>{
         document.querySelector("#artista").innerHTML=`${listacanciones[valor].children[1].children[1].children[1].innerHTML}`;
     }
     for(let i=0;i<listacanciones.length;i++){
-        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML){
+        if(listaTotalSong[indice]===listacanciones[i].children[1].children[1].children[0].innerHTML.toLowerCase()){
             listacanciones[i].style.background="rgba(80, 78, 78, 0.7)";
         }
         else{

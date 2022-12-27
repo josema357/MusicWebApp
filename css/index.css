@@ -21,10 +21,12 @@ body{
 }
 .logo{
     padding: 14px 17px;
+    display: flex;
+    align-items: center;
 }
 .logo img{
     width: 100px;
-    height: 100%;
+    height: 40px;
     cursor: pointer;
     user-select: none;
     -moz-user-select: none;

@@ -846,6 +846,9 @@ body::-webkit-scrollbar-track {
         background: none;
         margin: 0;
     }
+    .tiempo{
+        font-size: 12px;
+    }
     .peque-des{
         display: none;
     }
@@ -927,6 +930,9 @@ body::-webkit-scrollbar-track {
     .titu{
         margin-top: 10px;
         font-size: 20px;
+    }
+    .des{
+        font-size: 12px;
     }
     .view{
         display: none;

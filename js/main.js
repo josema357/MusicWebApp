@@ -17,7 +17,7 @@ function tomarMedida(){
         <ul class="opciones">
                 <li><a href="">Premium</a></li>
                 <li><a href="">Ayuda</a></li>
-                <li><a href="">Descargar</a></li>
+                <li><a href="./reproductor.html">Descargar</a></li>
         </ul>
         <ul class="registrar">
                 <li><a href="">Registrate</a></li>

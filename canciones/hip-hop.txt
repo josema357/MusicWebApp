@@ -3,88 +3,104 @@
         {
             "artista": "Eminem",
             "nombre": "Whithout Me",
-            "album": "The Eminem Show"
+            "album": "The Eminem Show",
+            "tiempo":"04:27"
         },
         {
             "artista": "Eminem",
             "nombre": "The Real Slim Shady",
-            "album": "The Marshall Mathers LP"
+            "album": "The Marshall Mathers LP",
+            "tiempo":"04:28"
         },
         {
             "artista": "Eminem",
             "nombre": "Not Afraid",
-            "album": "Hits June 10"
+            "album": "Hits June 10",
+            "tiempo":"04:18"
         },
         {
             "artista": "Eminem",
             "nombre": "Ass Like That",
-            "album": "Encore"
+            "album": "Encore",
+            "tiempo":"04:25"
         },
         {
             "artista": "Eminem",
             "nombre": "Rap God",
-            "album": "The Marshall Mathers LP2"
+            "album": "The Marshall Mathers LP2",
+            "tiempo":"06:09"
         },
         {
             "artista": "Eminem",
             "nombre": "Mockingbird",
-            "album": "Encore"
+            "album": "Encore",
+            "tiempo":"04:17"
         }
     ],
     "50cent":[
         {
             "artista": "50 Cent",
             "nombre": "In Da Club",
-            "album": "Get Rich or Die Tryin"
+            "album": "Get Rich or Die Tryin",
+            "tiempo":"00:00"
         },
         {
             "artista": "50 Cent",
             "nombre": "Candy Shop",
-            "album": "The Massacre"
+            "album": "The Massacre",
+            "tiempo":"00:00"
         },
         {
             "artista": "50 Cent",
             "nombre": "Just A Lil Bit",
-            "album": "The Massacre"
+            "album": "The Massacre",
+            "tiempo":"00:00"
         }
     ],
     "drDre": [
         {
             "artista": "Dr. Dre",
             "nombre": "Still DRE",
-            "album": "2001"
+            "album": "2001",
+            "tiempo":"00:00"
         },
         {
             "artista": "Dr. Dre",
             "nombre": "The Next Episode",
-            "album": "2001"
+            "album": "2001",
+            "tiempo":"00:00"
         },
         {
             "artista": "Dr. Dre",
             "nombre": "The Watcher",
-            "album": "2001"
+            "album": "2001",
+            "tiempo":"00:00"
         }
     ],
     "akon":[
         {
             "artista": "Akon",
             "nombre": "Lonely",
-            "album": "Trouble"
+            "album": "Trouble",
+            "tiempo":"00:00"
         },
         {
             "artista": "Akon",
             "nombre": "Smack That",
-            "album": "Konvicted"
+            "album": "Konvicted",
+            "tiempo":"00:00"
         },
         {
             "artista": "Akon",
             "nombre": "Right Now",
-            "album": "Freedom"
+            "album": "Freedom",
+            "tiempo":"00:00"
         },
         {
             "artista": "Akon",
             "nombre": "I Wanna Love You",
-            "album": "Konvicted"
+            "album": "Konvicted",
+            "tiempo":"00:00"
         }
     ]
 }
